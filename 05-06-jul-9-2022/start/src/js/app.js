@@ -1,5 +1,5 @@
 // Write your code here
-import { gameWon, addTile } from './tiles.js';
+import { gameWon, gameOver, addTile } from './tiles.js';
 import { getWord, isInDictionary } from './words.js';
 
 // Grab the input box to get the word that the user types
@@ -51,6 +51,16 @@ inputEl.addEventListener('keyup', (event) => {
                     addTile(guess[x], 'grey');
                 }
             }
+        }
+
+        // Empty out the input box
+        event.target.value = '';
+
+        // If total chances are 0 or in negative, then end the game!
+        if (totalChances <= 0) {
+            // If the user is out of chances, its game over!
+            gameOver();
+            return;
         }
 
     } else if(keyPressed === 'Enter' && guess.length < 5 ) {
