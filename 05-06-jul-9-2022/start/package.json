@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "parcel src/index.html",
+    "start": "http-server ./src",
+    "dev": "parcel src/index.html --port 4000",
     "build": "parcel build src/index.html"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "parcel": "^2.2.1"
+  },
+  "dependencies": {
+    "http-server": "^14.1.1"
   }
 }

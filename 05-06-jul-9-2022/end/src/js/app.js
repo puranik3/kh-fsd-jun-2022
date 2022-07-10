@@ -11,7 +11,7 @@ let word = getWord();
 let totalChances = 6;
 
 // If you want to cheat, then uncomment the next statement
-// console.log(word);
+console.log(word);
 
 // We want to get in action when the user presses and releases a key on the keyboard so we keep monitoring our input box
 inputEl.addEventListener('keyup', (event) => {
