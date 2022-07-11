@@ -7,12 +7,28 @@
         <title>Working with forms</title>
     </head>
     <body>
-        <form action="02-success.html">
+        <!--
+            Query string
+            ?name=John&password=password
+            
+            method="get" | method="post"
+        -->
+        <form action="02-success.html" method="post">
             <label for="name">Name</label>:
-            <input type="text" value="John" placeholder="John Doe" id="name" />
+            <input
+                type="text"
+                value="John"
+                placeholder="John Doe"
+                id="name"
+                name="name"
+            />
             
             <label for="password">Password</label>:
-            <input type="password" id="password" />
+            <input
+                type="password"
+                id="password"
+                name="password"
+            />
 
             <button type="submit">Submit it</button>
         </form>
