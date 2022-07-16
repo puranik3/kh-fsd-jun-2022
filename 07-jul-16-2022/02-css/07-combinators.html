@@ -23,6 +23,13 @@
             /* +, ~ -> sibling combinators */
 
             /* commas -> separate individual selectors with commas - the style is applied to the elements selected by each selector */
+
+            /* no spaces */
+            /* .x .y is different from .x.y */
+            /* selects elements which satisfies each of the individual selectors */
+            .x.y {
+                font-size: 1.75em;
+            }
         </style>
     </head>
     <body>
@@ -31,13 +38,13 @@
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam facilis illum ipsum, quas, aut consequatur autem animi nemo ullam cumque neque magnam delectus, quis officiis. Quos beatae similique voluptatibus reiciendis?
 
-                <a href="#">Link within para</a>
-                <a href="#">Link within para</a>
+                <a href="#" class="x">Link within para</a>
+                <a href="#" class="x y">Link within para</a>
             </p>
             <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio voluptatum a animi. Quis ipsum voluptatibus nam sequi iusto dignissimos est cumque quam nihil, fuga non nulla facilis fugiat perspiciatis vel!
 
-                <a href="#">Link within para</a>
+                <a href="#" class="y">Link within para</a>
                 <a href="#">Link within para</a>
             </p>
         </section>
