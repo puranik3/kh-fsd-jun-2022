@@ -13,6 +13,13 @@
             
             method="get" | method="post"
         -->
+        <!--
+            - select (Dropdown)
+            - radio buttons, checkboxes
+            - date
+            - email
+            - textarea 
+        -->
         <form action="02-success.html" method="post">
             <label for="name">Name</label>:
             <input
@@ -29,6 +36,17 @@
                 id="password"
                 name="password"
             />
+
+            <!-- the value of a select input is the value of the selected option -->
+            <label for="country">Country</label>:
+            <select id="country" name="nation">
+                <option value="">-- Select your country --</option>
+                <option value="usa">USA</option>
+                <option value="england">UK</option>
+                <option value="germany">Germany</option>
+                <option value="india">India</option>
+                <option value="australia">Australia</option>
+            </select>
 
             <button type="submit">Submit it</button>
         </form>
