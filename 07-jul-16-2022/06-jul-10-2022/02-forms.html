@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Working with forms</title>
+    </head>
+    <body>
+        <!--
+            Query string
+            ?name=John&password=password
+            
+            method="get" | method="post"
+        -->
+        <!--
+            - select (Dropdown)
+            - radio buttons, checkboxes
+            - date
+            - email
+            - textarea 
+        -->
+
+        <form action="02-success.html" method="post">
+            <!-- "required" attribute : the browser will check of the input has been filled before submitting the form. it will not submit the form if it is empty. -->
+            <label for="name">Name</label>:
+            <input
+                type="text"
+                value="John"
+                placeholder="John Doe"
+                id="name"
+                name="name"
+                required
+            />
+            
+            <label for="password">Password</label>:
+            <input
+                type="password"
+                id="password"
+                name="password"
+            />
+
+            <!-- the value of a select input is the value of the selected option -->
+            <label for="country">Country</label>:
+            <select id="country" name="nation">
+                <option value="">-- Select your country --</option>
+                <option value="usa">USA</option>
+                <option value="england">UK</option>
+                <option value="germany">Germany</option>
+                <option value="india">India</option>
+                <option value="australia">Australia</option>
+            </select>
+
+            <!-- Alt + Shift + Down arrow (Windows) to duplicate the selected piece of code, below it -->
+            <!-- Option + Shift + Down arrow (Mac) to duplicate the selected piece of code, below it -->
+            <label>
+                <input type="radio" name="sport" value="soccer" /> Soccer
+            </label>
+            <label>
+                <input type="radio" name="sport" value="cricket" /> Cricket
+            </label>
+            <label>
+                <input type="radio" name="sport" value="tennis" /> Tennis
+            </label>
+            <label>
+                <input type="radio" name="sport" value="swimming" /> Swimming
+            </label>
+            
+            <label>
+                <input type="checkbox" name="sport2" value="soccer" /> Soccer
+            </label>
+            <label>
+                <input type="checkbox" name="sport2" value="cricket" /> Cricket
+            </label>
+            <label>
+                <input type="checkbox" name="sport2" value="tennis" /> Tennis
+            </label>
+            <label>
+                <input type="checkbox" name="sport2" value="swimming" /> Swimming
+            </label>
+
+            <label for="startDate">Start date</label>:
+            <input type="date" name="startDate" id="startDate" min="2022-01-31" max="2022-12-31" />
+            
+            <!-- Please add labels for all of these as well! -->
+            <input type="email" name="email" placeholder="john.doe@example" />
+            <textarea name="message"></textarea>
+
+            <input type="number" min="1" max="10" />
+
+            <button type="submit">Submit it</button>
+        </form>
+    </body>
+</html>
