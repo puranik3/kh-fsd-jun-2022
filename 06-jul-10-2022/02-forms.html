@@ -28,6 +28,7 @@
                 placeholder="John Doe"
                 id="name"
                 name="name"
+                required
             />
             
             <label for="password">Password</label>:
@@ -76,9 +77,14 @@
                 <input type="checkbox" name="sport2" value="swimming" /> Swimming
             </label>
 
-            <input type="date" name="startDate" />
+            <label for="startDate">Start date</label>:
+            <input type="date" name="startDate" id="startDate" min="2022-01-31" max="2022-12-31" />
+            
+            <!-- Please add labels for all of these as well! -->
             <input type="email" name="email" placeholder="john.doe@example" />
             <textarea name="message"></textarea>
+
+            <input type="number" min="1" max="10" />
 
             <button type="submit">Submit it</button>
         </form>
