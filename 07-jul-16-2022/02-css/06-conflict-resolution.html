@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            /* #id selector is "more specific" than .class selector */
+            #first-para {
+                color: purple;
+            }
+
+            /* .class selector is "more specific" than element selector */
+            .para {
+                color: blue;
+            }
+
+            /* more general ("less specific") */
+            p {
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="first-para" class="para">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, ea facilis? Delectus officia accusantium illo, asperiores, cumque incidunt animi in ut praesentium alias dolor veniam assumenda dolores quae architecto iure.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus soluta est, repellendus culpa ipsa assumenda iste deleniti ipsum ut nulla labore quos, laborum qui accusantium molestiae illum repudiandae explicabo. Veritatis.
+        </p>
+    </body>
+</html>

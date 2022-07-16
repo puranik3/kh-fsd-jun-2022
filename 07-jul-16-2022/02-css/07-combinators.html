@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Combinators</title>
+        <style>
+            a {
+                text-decoration: none;
+            }
+
+            /* ancestor descendant selector - put a space between ancestor and descendant - select the descendant */
+            section a {
+                color: green;
+            }
+
+            /* parent child selector - put a > between parent and child - select the child */
+            section > a {
+                cursor: crosshair;
+            }
+
+            /* +, ~ -> sibling combinators */
+
+            /* commas -> separate individual selectors with commas - the style is applied to the elements selected by each selector */
+        </style>
+    </head>
+    <body>
+        <section>
+            <a href="#">Link within section</a>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam facilis illum ipsum, quas, aut consequatur autem animi nemo ullam cumque neque magnam delectus, quis officiis. Quos beatae similique voluptatibus reiciendis?
+
+                <a href="#">Link within para</a>
+                <a href="#">Link within para</a>
+            </p>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio voluptatum a animi. Quis ipsum voluptatibus nam sequi iusto dignissimos est cumque quam nihil, fuga non nulla facilis fugiat perspiciatis vel!
+
+                <a href="#">Link within para</a>
+                <a href="#">Link within para</a>
+            </p>
+        </section>
+
+        <a href="#">Link within body</a>
+        <a href="#">Link within body</a>
+    </body>
+</html>
