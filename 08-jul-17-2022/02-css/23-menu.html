@@ -9,8 +9,10 @@
             nav {
                 display: flex; /* so that the ul children fall in line */
                 justify-content: space-between;
+                padding: 0.5em 100px;
             }
 
+            /* let us style only those uls within a nav */
             nav ul {
                 display: flex; /* so that the li children fall in line */
                 list-style-type: none; /* remove bullets within every ul in nav */
@@ -18,6 +20,11 @@
                 /* remove browser-provided padding/margin for ul */
                 padding: 0;
                 margin: 0;
+            }
+
+            nav ul a {
+                padding: 0.25em 0.5em;
+                margin: 0 0.25em;
             }
         </style>
     </head>
@@ -42,5 +49,7 @@
                 <li><a href="#">Sign in</a></li>
             </ul>
         </nav>
+
+        <ul></ul>
     </body>
 </html>
