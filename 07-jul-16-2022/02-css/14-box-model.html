@@ -7,7 +7,14 @@
         <title>Box model</title>
         <style>
             .panel {
+                width: 50%;
+                height: 300px; /* do not do this */
+                min-width: 500px; /* we have max-width as well */
                 border: 1px solid crimson;
+                border-top-color: black;
+                border-right-color: green;
+                border-bottom-color: purple;
+                border-bottom-style: dashed;
                 margin: 16px;
             }
 
@@ -18,11 +25,15 @@
 
             .panel-heading,
             .panel-body {
-                padding: 16px;
+                /* top right bottom left */
+                /* missing directions get the value from the opposite direction */
+                padding: 16px 32px 48px 64px;
+                padding-left: 16px;
             }
         </style>
     </head>
     <body>
+        <!-- div stands for division. It is used when we need a block-level element, but none of the other HTML block-level elements like section, fiiter, header, nav etc. make sense to use. -->
         <div class="panel">
             <div class="panel-heading">
                 What is CSS?
