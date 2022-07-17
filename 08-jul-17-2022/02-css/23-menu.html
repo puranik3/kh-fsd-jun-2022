@@ -6,15 +6,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <style>
+            body {
+                margin: 0;
+            }
+
             nav {
                 display: flex; /* so that the ul children fall in line */
                 justify-content: space-between;
-                padding: 0.5em 100px;
+                padding: 0 100px;
             }
 
             /* let us style only those uls within a nav */
             nav ul {
                 display: flex; /* so that the li children fall in line */
+                align-items: center; /* vertical centering of children */
                 list-style-type: none; /* remove bullets within every ul in nav */
                 
                 /* remove browser-provided padding/margin for ul */
@@ -25,6 +30,10 @@
             nav ul a {
                 padding: 0.25em 0.5em;
                 margin: 0 0.25em;
+            }
+
+            nav img {
+                height: 50px;
             }
         </style>
     </head>
