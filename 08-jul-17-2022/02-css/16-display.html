@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>display, visibility, opacity properties</title>
+        <style>
+            body {
+                background-color: lightpink;
+            }
+            section {
+                padding: 1em;
+                border: 1px solid black;
+                margin: 1em 0;
+            }
+
+            #section-2 {
+                /* defaults to block for section */
+                display: none;
+            }
+            
+            #section-4 {
+                visibility: hidden;
+            }
+
+            #section-6 {
+                background-color: white;
+                opacity: 0.5; /* 0 (transparent) - 1 (opaque) */
+            }
+        </style>
+    </head>
+    <body>
+        <button id="show-section-2">Show section 2</button>
+        <section>
+            <h2>Section 1</h2>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos, modi perspiciatis, repellat quae accusamus sit illum provident, molestias laboriosam distinctio quaerat reprehenderit id maxime labore numquam voluptates omnis quo! Tempora.
+        </section>
+        <section id="section-2">
+            <h2>Section 2</h2>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos, modi perspiciatis, repellat quae accusamus sit illum provident, molestias laboriosam distinctio quaerat reprehenderit id maxime labore numquam voluptates omnis quo! Tempora.
+        </section>
+        <section>
+            <h2>Section 3</h2>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos, modi perspiciatis, repellat quae accusamus sit illum provident, molestias laboriosam distinctio quaerat reprehenderit id maxime labore numquam voluptates omnis quo! Tempora.
+        </section>
+        <section id="section-4">
+            <h2>Section 4</h2>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos, modi perspiciatis, repellat quae accusamus sit illum provident, molestias laboriosam distinctio quaerat reprehenderit id maxime labore numquam voluptates omnis quo! Tempora.
+        </section>
+        <section>
+            <h2>Section 5</h2>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos, modi perspiciatis, repellat quae accusamus sit illum provident, molestias laboriosam distinctio quaerat reprehenderit id maxime labore numquam voluptates omnis quo! Tempora.
+        </section>
+        <section id="section-6">
+            <h2>Section 6</h2>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos, modi perspiciatis, repellat quae accusamus sit illum provident, molestias laboriosam distinctio quaerat reprehenderit id maxime labore numquam voluptates omnis quo! Tempora.
+        </section>
+        <section>
+            <h2>Section 7</h2>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos, modi perspiciatis, repellat quae accusamus sit illum provident, molestias laboriosam distinctio quaerat reprehenderit id maxime labore numquam voluptates omnis quo! Tempora.
+        </section>
+
+        <script>
+            document.querySelector( '#show-section-2' ).onclick = function() {
+                document.querySelector( '#section-2' ).style.display = 'block';
+            };
+        </script>
+    </body>
+</html>
