@@ -7,10 +7,12 @@
         <title>Document</title>
         <style>
             nav {
-                display: flex;
+                display: flex; /* so that the ul children fall in line */
+                justify-content: space-between;
             }
 
             nav ul {
+                display: flex; /* so that the li children fall in line */
                 list-style-type: none; /* remove bullets within every ul in nav */
                 
                 /* remove browser-provided padding/margin for ul */
@@ -25,7 +27,7 @@
                 <li>
                     <img src="images/microsoft-logo.png" alt="Microsoft logo" />
                 </li>
-                <!-- li*6>a -->
+                <!-- li*6>a (Check emmet.io) -->
                 <li><a href="#">Microsoft 365</a></li>
                 <li><a href="#">Office</a></li>
                 <li><a href="#">Windows</a></li>
