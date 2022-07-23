@@ -39,6 +39,9 @@ console.clear();
 let accountDisabled = true;
 
 // precedence - (), &&, ||
+// proceed = (false) || (true) && false
+// proceed = false || false
+// proceed = false
 proceed = ( invoiceAmount <= bankBalance ) || ( invoiceAmount <= ccLimit ) && !accountDisabled;
 
 if( proceed ) {
