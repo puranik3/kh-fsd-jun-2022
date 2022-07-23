@@ -30,3 +30,19 @@ if( proceed ) {
 } else {
     console.log( 'Payment declined' );
 }
+
+console.clear();
+
+// ! operator
+// !true -> false
+// !false -> true
+let accountDisabled = true;
+
+// precedence - (), &&, ||
+proceed = ( invoiceAmount <= bankBalance ) || ( invoiceAmount <= ccLimit ) && !accountDisabled;
+
+if( proceed ) {
+    console.log( 'Payment successful' );
+} else {
+    console.log( 'Payment declined' );
+}
