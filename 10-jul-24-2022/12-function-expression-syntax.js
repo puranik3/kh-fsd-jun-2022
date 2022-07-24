@@ -1,6 +1,7 @@
 // syntax #2: The right hand side of this statements is a "function expression"
 const sum1 = function( x, y ) {
-    return x + y;
+    let result = x + y;
+    return result;
 };
 
 console.log( sum1( 12, 13 ) );
