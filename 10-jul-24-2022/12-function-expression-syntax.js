@@ -14,3 +14,9 @@ const sum2 = ( x, y ) => {
 
 console.log( sum2( 12, 13 ) );
 console.log( sum2( 14, 15 ) );
+
+// if an ARROW function just has a single-line return statement, then we can shorten it like so (MUST remove BOTH {} and return)
+const sum3 = ( x, y ) => x + y;
+
+console.log( sum3( 12, 13 ) );
+console.log( sum3( 14, 15 ) );
