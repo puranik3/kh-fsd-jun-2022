@@ -20,9 +20,19 @@ const john = {
     },
     // EXERCISE: Create these 2 methods, and call them later
     // celebrateBirthday() is a method which increases age by 1
+    celebrateBirthday() { // ES2015 syntax for methods
+        ++this.age;
+    },
     // changeAddress() which accepts line, city and state as inputs, and updates the object
+    changeAddress( line, city, state ) {
+        this.address.line = line;
+        this.address.city = city;
+        this.address.state = state;
+    }
 };
 
 john.addEmail( 'john@yahoo.com' );
+john.celebrateBirthday();
+john.changeAddress( '#64 Rosewell', 'Chicago', 'Illinois' );
 
 console.log( john );
