@@ -15,7 +15,7 @@ const john = {
     // RHS is a function expression
     // "method" -> a property whose value is a function (addEmail is a method)
     addEmail: function( newEmail ) {
-        // this -> refers to the object of which
+        // this -> refers to the object to which the method belongs
         this.emailAddresses.push( newEmail );
     },
     // EXERCISE: Create these 2 methods, and call them later
