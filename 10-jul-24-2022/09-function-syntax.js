@@ -1,3 +1,4 @@
+// syntax #1
 function name( param1, param2, ... ) {
     // do something and return the result
 }
