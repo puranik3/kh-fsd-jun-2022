@@ -17,7 +17,10 @@ const john = {
     addEmail: function( newEmail ) {
         // this -> refers to the object of which
         this.emailAddresses.push( newEmail );
-    }
+    },
+    // EXERCISE: Create these 2 methods, and call them later
+    // celebrateBirthday() is a method which increases age by 1
+    // changeAddress() which accepts line, city and state as inputs, and updates the object
 };
 
 john.addEmail( 'john@yahoo.com' );
