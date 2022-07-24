@@ -15,3 +15,4 @@ let a = 12, b = 13;
 const value = sum( a, b ); // call / invoke the function
 
 console.log( 'value = ', value );
+console.log( 'sum( 14, 15 ) = ', sum( 14, 15 ) );
