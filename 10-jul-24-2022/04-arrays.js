@@ -13,9 +13,11 @@ console.log( numbers[n] ); // last item
 
 console.log( numbers[n + 1] ); // undefined
 
+// changing values of items in an array
 ++numbers[2];
 numbers[3] = numbers[3] * 2; // 3 * 2 = 6
 
 console.log( numbers );
 
+// we cannot reassign a const variable
 // numbers = 'Hello world'; // error
