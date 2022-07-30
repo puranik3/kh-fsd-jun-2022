@@ -19,7 +19,7 @@ class Person {
     }
 
     celebrateBirthday() {
-        this.age++;
+        ++this.age;
     }
 }
 
