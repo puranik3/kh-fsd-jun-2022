@@ -36,3 +36,17 @@ function getFrenchTitle( person ) {
 // getTitle = getEnglishTitle / getFrenchTitle
 print( john, getEnglishTitle );
 print( jane, getFrenchTitle );
+print(
+    {
+        name: 'Mark',
+        age: 40,
+        gender: 'male'
+    },
+    function getRoyalTitle( person ) {
+        if( person.gender === 'male' ) {
+            return 'Prince';
+        } else {
+            return 'Princess';
+        }
+    }
+);

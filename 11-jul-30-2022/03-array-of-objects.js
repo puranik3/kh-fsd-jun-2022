@@ -40,4 +40,4 @@ const persons = [
 
 console.log( persons[1] );
 console.log( persons[1].name );
-console.log( persons[1].emails[1] );
+console.log( persons[1].emails[1] ); // 2nd object's 2nd email ('jane@example.com')
