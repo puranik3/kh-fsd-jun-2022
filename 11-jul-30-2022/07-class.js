@@ -40,9 +40,17 @@ class Movie {
         this.boxOfficeCollection = boxOfficeCollection;
     }
 
+    addToCast( newMember ) {
+        this.cast.push( newMember );
+    }
 
+    addToCollection( amount ) {
+        this.boxOfficeCollection += amount;
+    }
 }
 
 const alien = new Movie( 'Alien', [ 'Sigourney Weaver', 'Yapha Kotto'], 1976, 10000000 );
+alien.addToCollection( 5000000 );
+alien.addToCast( 'Another person' )
 
 console.log( alien );
