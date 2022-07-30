@@ -12,7 +12,7 @@ numbers.splice( 2, 4 );
 
 console.log( numbers ); // [ 1, 2, 99, 100 ];
 
-// index to start at 4
+// index to start: 4
 // remove 0 items
 // add 5, 6, 95, 96
 numbers = [ 1, 2, 3, 4, 97, 98, 99, 100 ];
