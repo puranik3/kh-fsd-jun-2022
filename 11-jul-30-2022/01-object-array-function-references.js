@@ -32,4 +32,4 @@ function sum( x, y ) {
 // add and sum are one and the same function
 const add = sum; // copy by reference
 
-console.log( add( 12, 13 ) );
+console.log( add( 12, 13 ) ); // x = 12, y = 13

@@ -1,5 +1,4 @@
-Given the following array, solve the questions that follow using appropriate array iterator 
-methods (forEach, find, filter, map, reduce, some) 
+// Given the following array, solve the questions that follow using appropriate array iterator methods (forEach, find, filter, map, reduce, some)
  
 const persons = [ 
     { 
