@@ -17,8 +17,32 @@ class Person {
         // "this" is returned by default by the constructor
         // return this; // return the newly created object
     }
+
+    celebrateBirthday() {
+        this.age++;
+    }
 }
 
 // We must use the new operator when creating an object
 const mark = new Person( 'Mark', 40 ); // {}
-console.log( mark ); // { name: 'Mark', age: 40 }
+mark.celebrateBirthday();
+console.log( mark ); // { name: 'Mark', age: 41 }
+
+const mary = new Person( 'Mary', 44 );
+mary.celebrateBirthday();
+console.log( mary );
+
+class Movie {
+    constructor(name, cast, yearOfRelease, boxOfficeCollection) {
+        this.name = name;
+        this.cast = cast;
+        this.yearOfRelease = yearOfRelease;
+        this.boxOfficeCollection = boxOfficeCollection;
+    }
+
+
+}
+
+const alien = new Movie( 'Alien', [ 'Sigourney Weaver', 'Yapha Kotto'], 1976, 10000000 );
+
+console.log( alien );
