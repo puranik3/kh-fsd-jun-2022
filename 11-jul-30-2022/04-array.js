@@ -58,9 +58,22 @@ function has3EmailIds( person, idx ) {
 console.log( persons.filter( has3EmailIds ) );
 
 // increase salary of every person by 10%
-persons.forEach(function increaseSalary( person ) {
-    person.salary = person.salary + 0.1 * person.salary;
-});
+persons.forEach(
+    /* anonymous function (function without a name) - forEach shall refer to this function using some name of its own */
+    function( person ) {
+        person.salary = person.salary + 0.1 * person.salary;
+    }
+);
+
+console.log( persons );
+
+// Let's rewrite the above using an "arrow function"
+// if an arrow function accepts EXACTLY 1 argument, the () around the argument is optional
+persons.forEach(
+    person => {
+        person.salary = person.salary + 0.1 * person.salary;
+    }
+);
 
 console.log( persons );
 
