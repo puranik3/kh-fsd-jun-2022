@@ -18,6 +18,15 @@
 
             console.dir( document );
             console.dir( document.documentElement ); // html element
+
+            // document.documentElement.children[1].children[0];
+            
+            const body = document.documentElement.children[1];
+            const button = body.children[0];
+            button.textContent = 'Press me';
+
+            console.dir( body );
+            console.dir( button );
         </script>
     </body>
 </html>
