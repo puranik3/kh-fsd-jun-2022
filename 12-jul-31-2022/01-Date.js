@@ -21,7 +21,7 @@ console.log( independenceDay.getDay() ); // 0 - 6
 console.log( days[independenceDay.getDay()] );
 console.log( today.getDay() );
 
-today.setDate( 32 );
+today.setDate( 32 ); // today is july 31. This will set the date to August 1
 console.log( today );
 
 todayPlus100 = new Date();
