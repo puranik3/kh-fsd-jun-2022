@@ -9,7 +9,7 @@ console.log( phonePattern1.test( '123-45678901' ) ); // true! (the entire string
 console.log( phonePattern2.test( '123-4567890' ) ); // true
 console.log( phonePattern2.test( '123-45678901' ) ); // false
 
-console.clear();
+// console.clear();
 
 const emailPattern = /^[A-Za-z0-9_\.]+@(example|gmail|yahoo)\.[A-Za-z]{2,3}$/;
 
