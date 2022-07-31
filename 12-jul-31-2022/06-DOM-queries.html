@@ -22,6 +22,11 @@
             // The first DOM node that is selected by the given CSS Selector
             const messageEl = document.querySelector( 'section .message' );
 
+            const messageEls = document.querySelectorAll( '.message' );
+            console.log( messageEls ); // a list with both .message elements
+            console.log( messageEls[0] );
+            console.log( messageEls[1] );
+
             // Hey browser! Execute f after 5 seconds
             setTimeout(
                 () => { // f
