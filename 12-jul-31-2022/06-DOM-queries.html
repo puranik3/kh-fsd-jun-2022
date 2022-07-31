@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <p class="message">
+            Super Mario
+        </p>
+
+        <section>
+            <h2>Section 1</h2>
+            <p class="message">
+                You are on Level 10
+            </p>
+        </section>
+
+        <script>
+            // The first DOM node that is selected by the given CSS Selector
+            const messageEl = document.querySelector( 'section .message' );
+
+            // Hey browser! Execute f after 5 seconds
+            setTimeout(
+                () => { // f
+                    messageEl.textContent = 'You won!';
+                },
+                5000 // 5000 milliseconds -> 5 seconds
+            );
+
+            console.log( messageEl );
+        </script>
+    </body>
+</html>

@@ -10,19 +10,19 @@
         <button onclick="console.log( 'Button was clicked' );">Click me</button>
 
         <script>
-            // DOM (Document Object Model)
+            // DOM (Document Object Model) Tree
             // The browser creates many object when it loads a web page
             // window, location, history, navigator, document
             // Our focus: document object
             // The document objects includes many other objects
 
-            console.dir( document );
+            console.dir( document ); // A "DOM Node"
             console.dir( document.documentElement ); // html element
 
             // document.documentElement.children[1].children[0];
             
-            const body = document.documentElement.children[1];
-            const button = body.children[0];
+            const body = document.documentElement.children[1]; // "DOM Node"
+            const button = body.children[0]; // "DOM Node"
             button.textContent = 'Press me';
 
             console.dir( body );
