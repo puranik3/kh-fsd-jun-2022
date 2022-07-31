@@ -13,7 +13,7 @@
 
         <section>
             <h2>Section 1</h2>
-            <p class="message">
+            <p class="message" id="message-level">
                 You are on Level 10
             </p>
         </section>
@@ -26,6 +26,10 @@
             console.log( messageEls ); // a list with both .message elements
             console.log( messageEls[0] );
             console.log( messageEls[1] );
+
+            // document.querySelector( '#message-level' ); // use # (since it is a CSS selector)
+            const messageEl2 = document.getElementById( 'message-level' ); // no #
+            console.log( messageEl2 );
 
             // Hey browser! Execute f after 5 seconds
             setTimeout(
