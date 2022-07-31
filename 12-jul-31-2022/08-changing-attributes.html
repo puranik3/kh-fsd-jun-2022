@@ -19,6 +19,7 @@
                 () => { // the browser calls the function after 5 seconds
                     // textContent property is used to set plain text content
                     messageEl.textContent = '<strong>Email 1</strong>';
+                    messageEl.setAttribute( 'title', 'Email from john.doe@example.com' );
                 },
                 2000
             );
@@ -30,8 +31,9 @@
                 () => {
                     // innerHTML property is used to set HTML content
                     messageEl.innerHTML = '<strong>Email 2</strong>';
+                    messageEl.setAttribute( 'title', 'Email from jane.doe@example.com' );
                 },
-                4000
+                5000
             );
 
             console.log( 3 ); // appears immediately
@@ -45,8 +47,9 @@
                     // let us add onto the HTML already present within messageEl
                     // messageEl.innerHTML = messageEl.innerHTML + '<strong>Level 3</strong>';
                     messageEl.innerHTML += '<strong>Email 3</strong>';
+                    messageEl.setAttribute( 'title', 'Email from john.doe@example.com' );
                 },
-                6000
+                10000
             );
         </script>
     </body>
