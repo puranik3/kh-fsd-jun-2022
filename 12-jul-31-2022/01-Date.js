@@ -1,3 +1,5 @@
+'use strict';
+
 // Jan -> 0, Dec -> 11
 const independenceDay = new Date( 1776, 6, 4, 12, 30, 50, 500 );
 console.log( independenceDay ); // GMT
@@ -18,12 +20,14 @@ const days = [
     'Saturday' // 6
 ]
 console.log( independenceDay.getDay() ); // 0 - 6
-console.log( days[independenceDay.getDay()] );
+console.log( days[independenceDay.getDay()] ); // Sunday 
 console.log( today.getDay() );
 
 today.setDate( 32 ); // today is july 31. This will set the date to August 1
 console.log( today );
 
-todayPlus100 = new Date();
-todayPlus100.setDate( todayPlus100.getDate() + 100 );
+const todayPlus100 = new Date();
+todayPlus100.setDate( todayPlus100.getDate() + 100 ); // parts of an object CAN be changed even if const
 console.log( todayPlus100 );
+
+// todayPlus100 = new Date(); // reassignment is NOT allowed with const
