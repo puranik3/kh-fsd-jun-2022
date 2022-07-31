@@ -17,22 +17,24 @@
             // non-blocking function
             setTimeout(
                 () => { // the browser calls the function after 5 seconds
-                    messageEl.textContent = 'Level 1'
+                    // textContent property is used to set plain text content
+                    messageEl.textContent = '<strong>Level 1</strong>';
                 },
                 5000
             );
 
-            console.log( 2 );
+            console.log( 2 ); // appears immediately
             
             // non-blocking function
             setTimeout(
                 () => {
-                    messageEl.textContent = 'Level 2'
+                    // innerHTML property is used to set HTML content
+                    messageEl.innerHTML = '<strong>Level 2</strong>';
                 },
                 10000
             );
 
-            console.log( 3 );
+            console.log( 3 ); // appears immediately
         </script>
     </body>
 </html>
