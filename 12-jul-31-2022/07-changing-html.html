@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Changing HTML</title>
+    </head>
+    <body>
+        <div class="message"></div>
+
+        <script>
+            const messageEl = document.querySelector( '.message' );
+
+            console.log( 1 );
+
+            // non-blocking function
+            setTimeout(
+                () => { // the browser calls the function after 5 seconds
+                    messageEl.textContent = 'Level 1'
+                },
+                5000
+            );
+
+            console.log( 2 );
+            
+            // non-blocking function
+            setTimeout(
+                () => {
+                    messageEl.textContent = 'Level 2'
+                },
+                10000
+            );
+
+            console.log( 3 );
+        </script>
+    </body>
+</html>
