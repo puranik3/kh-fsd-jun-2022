@@ -9,7 +9,15 @@
     <body>
         <div class="message"></div>
 
+        <img src="images/Mickey-Mouse.jpeg" alt="Mickey Mouse" />
+
         <script>
+            const imageEl = document.querySelector( 'img' );
+
+            // read the value of an attribute using getAttribute()
+            console.log( imageEl.getAttribute( 'src' ) );
+            console.log( imageEl.getAttribute( 'alt' ) );
+
             const messageEl = document.querySelector( '.message' );
 
             console.log( 1 );
