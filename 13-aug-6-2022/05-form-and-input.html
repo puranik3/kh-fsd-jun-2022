@@ -22,9 +22,18 @@
                 flex-basis: 20%;
             }
             
-            .form-group input {
+            .form-group .input {
                 flex-basis: auto;
                 flex-grow: 1;
+            }
+
+            .form-group .input input {
+                width: 100%;
+            }
+
+            .error {
+                color: crimson;
+                font-size: 0.8em;
             }
         </style>
     </head>
@@ -33,12 +42,18 @@
         <hr />
         <form>
             <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="john.doe@example.com" />
+                <label for="email">Email (KH)</label>
+                <div class="input">
+                    <input type="email" id="email" placeholder="john.doe@example.com" />
+                    <div class="error"></div>
+                </div>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" />
+                <div class="input">
+                    <input type="password" id="password" />
+                    <div class="error"></div>
+                </div>
             </div>
             <button type="submit">Login</button>
         </form>
@@ -48,7 +63,20 @@
             const passwordEl = document.getElementById( 'password' );
 
             function validateEmail() {
-                console.log( 'we need to validate the email entered' );
+                const khEmailPat = /^[A-Za-z0-9_\.]+@knowledgehut\.co$/;
+                const email = emailEl.value; // user input
+                const formGroup = emailEl.closest( '.form-group' );
+                
+                // let us search for the .error element which exists within the form group
+                const errorEl = formGroup.querySelector( '.error' );
+
+                let error = '';
+
+                if( !khEmailPat.test( email ) ) {
+                    error += '<div>You must provide a valid KnowledgeHut email id</div>';
+                }
+
+                errorEl.innerHTML = error;
             }
 
             // user is "changing the value" of the input
