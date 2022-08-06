@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script>
+            // window - aka global object
+            console.log( window.innerWidth, window.innerHeight  ); // dimensions of the viewport
+            console.log( window.outerWidth, window.outerHeight ); // dimensions of the entire browser
+
+            var x = 100; // they are set as properties on the window object
+            console.log( window.x ); // 100
+
+            window.console.log( 'console.log is a method on the window object' );
+
+            // window.addEventListener( 'load' )
+        </script>
+    </head>
+    <body>
+        <img src="images/Mickey-Mouse.jpeg" alt="Mickey mouse" />
+
+        <script src="js/app.js"></script>
+    </body>
+</html>
