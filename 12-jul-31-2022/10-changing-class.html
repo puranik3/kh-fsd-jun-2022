@@ -6,10 +6,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Changing HTML</title>
         <style>
-            .message-success {
+            .message {
                 padding: 1em;
+            }
+
+            .message-success {
                 border: 1px solid green;
                 background-color: lightgreen;
+            }
+            
+            .message-failure {
+                border: 1px solid crimson;
+                background-color: lightpink;
             }
         </style>
     </head>
@@ -33,8 +41,7 @@
             setTimeout(
                 () => { // the browser calls the function after 5 seconds
                     // textContent property is used to set plain text content
-                    messageEl.textContent = '<strong>Email 1</strong>';
-                    messageEl.setAttribute( 'title', 'Email from john.doe@example.com' );
+                    messageEl.textContent = '<strong>You won</strong>';
                     // messageEl.style.border = '1px solid green';
                     // messageEl.style.backgroundColor = 'lightgreen';
                     messageEl.classList.add( 'message-success' );
@@ -48,8 +55,9 @@
             setTimeout(
                 () => {
                     // innerHTML property is used to set HTML content
-                    messageEl.innerHTML = '<strong>Email 2</strong>';
-                    messageEl.setAttribute( 'title', 'Email from jane.doe@example.com' );
+                    messageEl.innerHTML = '<strong>You lost</strong>';
+                    messageEl.classList.remove( 'message-success' );
+                    messageEl.classList.add( 'message-failure' );
                 },
                 5000
             );
