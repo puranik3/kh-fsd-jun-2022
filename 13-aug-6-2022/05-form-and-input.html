@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Forms and inputs</title>
+        <style>
+            form {
+                width: 90%;
+                max-width: 400px;
+                padding: 1em;
+                border: 1px solid black;
+            }
+
+            .form-group {
+                display: flex;
+                margin: 1em 0;
+            }
+
+            .form-group label {
+                flex-basis: 20%;
+            }
+            
+            .form-group input {
+                flex-basis: auto;
+                flex-grow: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Login</h1>
+        <hr />
+        <form>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="john.doe@example.com" />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" />
+            </div>
+            <button type="submit">Login</button>
+        </form>
+
+        <script>
+            const emailEl = document.getElementById( 'email' );
+            const passwordEl = document.getElementById( 'password' );
+
+            function validateEmail() {
+                console.log( 'we need to validate the email entered' );
+            }
+
+            // user is "changing the value" of the input
+            emailEl.addEventListener( 'input', validateEmail );
+
+            // user is "moving away" from the input
+            emailEl.addEventListener( 'blur', validateEmail );
+        </script>
+    </body>
+</html>

@@ -7,8 +7,12 @@
         <title>Document</title>
         <script>
             // When the HTML page, along with all assets (CSS, JS, images have been fetched and loaded), the 'load' event is fired
+            console.log( 'about to add load listener' );
+
+            // we pass this function to the browser right away
+            // BUT the function is executed after load
             window.addEventListener( 'load', function() {
-                console.log( 'user can noe see the page fully' );
+                console.log( 'user can now see the page fully' );
             });
         </script>
     </head>
