@@ -59,31 +59,79 @@
         </form>
 
         <script>
+            let emailVisited = false;
+            let passwordVisited = false;
+            
             const emailEl = document.getElementById( 'email' );
             const passwordEl = document.getElementById( 'password' );
 
             function validateEmail() {
-                const khEmailPat = /^[A-Za-z0-9_\.]+@knowledgehut\.co$/;
-                const email = emailEl.value; // user input
-                const formGroup = emailEl.closest( '.form-group' );
-                
-                // let us search for the .error element which exists within the form group
-                const errorEl = formGroup.querySelector( '.error' );
+                if( emailVisited ) {
+                    const khEmailPat = /^[A-Za-z0-9_\.]+@knowledgehut\.co$/;
+                    const email = emailEl.value; // user input
+                    
+                    // search for the "closest ancestor" who has a class of form-group
+                    const formGroup = emailEl.closest( '.form-group' );
+                    
+                    // let us search for the .error element which exists within the form group
+                    const errorEl = formGroup.querySelector( '.error' );
 
-                let error = '';
+                    let error = '';
 
-                if( !khEmailPat.test( email ) ) {
-                    error += '<div>You must provide a valid KnowledgeHut email id</div>';
+                    if( !khEmailPat.test( email ) ) {
+                        error += '<div>You must provide a valid KnowledgeHut email id</div>';
+                    }
+
+                    errorEl.innerHTML = error;
                 }
+            }
 
-                errorEl.innerHTML = error;
+            function validatePassword() {
+                if( passwordVisited ) {
+                    const upperCasePat = /[A-Z]/;
+                    const lowerCasePat = /[a-z]/;
+                    const digitPat = /[0-9]/;
+                    
+                    const password = passwordEl.value; // user input
+                    const formGroup = passwordEl.closest( '.form-group' );
+                    const errorEl = formGroup.querySelector( '.error' );
+
+                    let error = '';
+
+                    if( !upperCasePat.test( password ) ) {
+                        error += '<div>Password must have an uppercase letter</div>';
+                    }
+
+                    /* Please add rest of checks */
+
+                    /* we need to check if password has at least 8 characters */
+                    if( password.length < 8 ) {
+                        error += '<div>Password must be at least 8 characters long</div>';
+                    }
+
+                    errorEl.innerHTML = error;
+                }
             }
 
             // user is "changing the value" of the input
             emailEl.addEventListener( 'input', validateEmail );
 
             // user is "moving away" from the input
+            emailEl.addEventListener( 'blur', function() {
+                emailVisited = true;
+            });
+
             emailEl.addEventListener( 'blur', validateEmail );
+
+            // user is "changing the value" of the input
+            passwordEl.addEventListener( 'input', validatePassword );
+
+            // user is "moving away" from the input
+            passwordEl.addEventListener( 'blur', function() {
+                passwordVisited = true;
+            });
+
+            passwordEl.addEventListener( 'blur', validatePassword );
         </script>
     </body>
 </html>
