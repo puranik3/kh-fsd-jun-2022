@@ -40,22 +40,22 @@
     <body>
         <h1>Login</h1>
         <hr />
-        <form>
-            <div class="form-group">
+        <form id="login-form" action="06-success.html">
+            <div class="form-group"> <!-- submit event -->
                 <label for="email">Email (KH)</label>
                 <div class="input">
-                    <input type="email" id="email" placeholder="john.doe@example.com" />
+                    <input type="email" id="email" placeholder="john.doe@example.com" name="email" />
                     <div class="error"></div>
                 </div>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
                 <div class="input">
-                    <input type="password" id="password" />
+                    <input type="password" id="password" name="password" />
                     <div class="error"></div>
                 </div>
             </div>
-            <button type="submit">Login</button>
+            <button type="submit">Login</button> <!-- click event -->
         </form>
 
         <script>
@@ -64,6 +64,7 @@
             
             const emailEl = document.getElementById( 'email' );
             const passwordEl = document.getElementById( 'password' );
+            const formEl = document.getElementById( 'login-form' );
 
             function validateEmail() {
                 if( emailVisited ) {
@@ -83,6 +84,8 @@
                     }
 
                     errorEl.innerHTML = error;
+
+                    return error === ''; // true if no error
                 }
             }
 
@@ -102,7 +105,7 @@
                         error += '<div>Password must have an uppercase letter</div>';
                     }
 
-                    /* Please add rest of checks */
+                    /* Please add rest of checks using the other patterns */
 
                     /* we need to check if password has at least 8 characters */
                     if( password.length < 8 ) {
@@ -110,6 +113,8 @@
                     }
 
                     errorEl.innerHTML = error;
+
+                    return error === ''; // true if no error
                 }
             }
 
@@ -132,6 +137,18 @@
             });
 
             passwordEl.addEventListener( 'blur', validatePassword );
+
+            formEl.addEventListener( 'submit', function( event ) {
+                event.preventDefault();
+
+                let isValid = true;
+                isValid = validateEmail() && isValid;
+                isValid = validatePassword() && isValid;
+
+                if( isValid ) {
+                    formEl.submit(); // go ahead and submit the form
+                }
+            })
         </script>
     </body>
 </html>
