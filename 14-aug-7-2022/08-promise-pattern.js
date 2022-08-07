@@ -1,8 +1,6 @@
-// Promise class (introduced in ES2015)
+// A promise object can move to a resolved / rejected state
 function sum( x, y ) {
     return new Promise(( resolve, reject ) => {
-        console.log( 1 );
-
         setTimeout(
             function() {
                 if( typeof x !== 'number' || typeof y !== 'number' ) {
@@ -10,25 +8,21 @@ function sum( x, y ) {
                     return;
                 }
 
-                // Hey promise! Here is the result
-                resolve( x + y ); // the result is conveyed to the promise object
+                resolve( x + y );
             },
             3000
         );
     });
 }
 
-const promise = sum( 12, 13 );
-
-console.log( 2 );
-
-// Promise objects have 2 methods - then(), catch()
-// Hey promise! When the result is available please call f
-promise
+sum( 12, 'hello' )
     .then(
-        function( result ) { // f
+        function( result ) { // executes on resolution
             console.log( 'result = ', result );
         }
+    )
+    .catch(
+        function( error )  { // executes on rejection
+            console.log( error.message );
+        }
     );
-
-console.log( 3 );
