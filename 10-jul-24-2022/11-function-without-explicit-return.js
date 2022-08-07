@@ -1,6 +1,8 @@
 // if a finishes completes execution without a return encountered, it returns undefined
 function foo() {
     console.log( 'foo was called' );
+
+    // return undefined;
 }
 
 console.log( foo() ); // undefined
