@@ -20,9 +20,21 @@
                 border-bottom-right-radius: 10px;
                 border-bottom-left-radius: 10px;
             }
+
+            .search {
+                width: 100%;
+                padding: 0.5em;
+                border-radius: 16px;
+                margin: 0.5em 0;
+                font-size: 1.25em;
+            }
         </style>
     </head>
     <body>
+        <h1>List of workshops</h1>
+        <hr />
+        <input type="search" class="search" />
+
         <ol class="workshops-list"></ol>
         <!-- new XMLHttpRequest() -> really old way -->
         <!-- fetch API -> new way-->
@@ -31,6 +43,28 @@
             // NOTE: in case of openweathermap API we need to pass the API key (appid)
             // let appid = '34ab59f78b3f662a1eec0a1965f60c71';
             // fetch( `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${appid}` )
+            // iconName appears in weather[0].icon
+            // Icon URL: `http://openweathermap.org/img/wn/${iconName}@2x.png`
+
+            let allWorkshops = [];
+
+            function filterWorkshops() {
+                const searchKey = searchEl.value;
+                console.log( searchKey )
+
+                // find all workshops which have the search key in their name
+                const matchedWorkshops = allWorkshops.filter(
+                    function( workshop ) {
+                        return workshop.name.toUpperCase().includes( searchKey.toUpperCase() );
+                    }
+                );
+
+                console.log( matchedWorkshops );
+                showWorkshops( matchedWorkshops );
+            }
+
+            const searchEl = document.querySelector( '.search' );
+            searchEl.addEventListener( 'input', filterWorkshops );
 
             function showWorkshops( workshops ) {
                 let html = '';
@@ -56,6 +90,7 @@
                 })
                 .then(function( data ) {
                     console.log( data );
+                    allWorkshops = data;
                     showWorkshops( data );
                 })
                 .catch(function( error ) {
