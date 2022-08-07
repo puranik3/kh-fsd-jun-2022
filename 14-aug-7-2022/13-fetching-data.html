@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Communicating with a server (Fetching data/POSTing data)</title>
+        <style>
+            .workshops-list {
+                list-style-type: none;
+                padding: 0;
+                border: 1px solid lightgray;
+                border-radius: 10px;
+                margin: 0;
+            }
+
+            .workshops-list li {
+                padding: 1em;
+                border-bottom: 1px solid lightgray;
+                border-bottom-right-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <ol class="workshops-list"></ol>
+        <!-- new XMLHttpRequest() -> really old way -->
+        <!-- fetch API -> new way-->
+
+        <script>
+            // NOTE: in case of openweathermap API we need to pass the API key (appid)
+            // let appid = 'skbkwbcwbebecbwibwiebiewb';
+            // fetch( `https://workshops-server.herokuapp.com/workshops?appid=${appid}` )
+
+            function showWorkshops( workshops ) {
+                let html = '';
+
+                workshops.forEach(
+                    function( workshop ) {
+                        html += `<li>${workshop.name} (${workshop.location.city})</li>`
+                    }
+                );
+
+                console.log( html );
+
+                const ol = document.querySelector( '.workshops-list' );
+                ol.innerHTML = html;
+            }
+
+            // fetch() returns a promise object. The promise resolves when the response is received from the server. The promise rejects if there are network issues or the server is unreachable
+            fetch( `https://workshops-server.herokuapp.com/workshops` )
+                .then(function( response ) {
+                    // JSON format (JavaScript Object Notation)
+                    // converts JSON-formatted text into a JS array/object (it returns a promise - so we return it and use the resolved value in the next then())
+                    return response.json();
+                })
+                .then(function( data ) {
+                    console.log( data );
+                    showWorkshops( data );
+                })
+                .catch(function( error ) {
+                    console.log( error.message );
+                });
+        </script>
+    </body>
+</html>
