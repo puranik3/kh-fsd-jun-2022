@@ -15,12 +15,21 @@ function sum( x, y ) {
     });
 }
 
-sum( 12, 'hello' ).then(
-    function( result ) { // executes on resolution
-        console.log( 'result = ', result );
-    }
-).catch(
-    function( error )  { // executes on rejection
-        console.log( error.message );
-    }
-);
+sum( 12, 13 )
+    .then(
+        function( result ) {
+            console.log( 'result = ', result );
+
+            return 100;
+        }
+    )
+    .then(
+        function( result ) {
+            console.log( 'result = ', result );
+        }
+    )
+    .catch(
+        function( error )  { // executes on rejection
+            console.log( error.message );
+        }
+    );

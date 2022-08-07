@@ -15,9 +15,19 @@ function sum( x, y ) {
     });
 }
 
-sum( 12, 'hello' ).then(
-    function( result ) { // executes on resolution
+sum( 12, 13 ).then(
+    function( result ) {
         console.log( 'result = ', result );
+
+        sum( result, 14 ).then(
+            function( result2 ) {
+                console.log( 'result2 = ', result2 );
+            }
+        ).catch(
+            function( error ) {
+                console.log( error.message );
+            }
+        )
     }
 ).catch(
     function( error )  { // executes on rejection

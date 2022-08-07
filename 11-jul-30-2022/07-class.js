@@ -10,7 +10,7 @@ const jane = {
 
 // Define a "class" when you have to create objects that are similar
 class Person {
-    constructor( name, age ) {
+    constructor( name, age, getTitle ) {
         this.name = name;
         this.age = age;
 
