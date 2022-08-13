@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>POSTing data</title>
+    </head>
+    <body>
+        <form id="add-workshop-form"> <!-- submit -->
+            <input type="text" id="name" name="name" placeholder="Name of the workshop" />
+            <input type="date" id="startDate" name="startDate"/>
+            <input type="date" id="endDate" name="endDate" />
+
+            <button type="submit">Add workshop</button> <!-- click -->
+        </form>
+
+        <script>
+            const form = document.getElementById( 'add-workshop-form' );
+
+            form.addEventListener( 'submit', function( event ) {
+                event.preventDefault(); // Hey browser! Keep quiet.
+
+                const workshop = {
+                    name: document.getElementById( 'name' ).value,
+                    startDate: document.getElementById( 'startDate' ).value,
+                    endDate: document.getElementById( 'endDate' ).value,
+                };
+
+                console.log( workshop );
+            })
+        </script>
+    </body>
+</html>
