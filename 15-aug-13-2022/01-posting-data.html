@@ -7,7 +7,7 @@
         <title>POSTing data</title>
     </head>
     <body>
-        <form id="add-workshop-form"> <!-- submit -->
+        <form id="add-workshop-form" action="success.html"> <!-- submit -->
             <input type="text" id="name" name="name" placeholder="Name of the workshop" />
             <input type="date" id="startDate" name="startDate"/>
             <input type="date" id="endDate" name="endDate" />
@@ -27,7 +27,33 @@
                     endDate: document.getElementById( 'endDate' ).value,
                 };
 
-                console.log( workshop );
+                // JSON.stringify converts a JS object to a JSOn-formatted string
+
+                fetch(
+                    `https://workshops-server.herokuapp.com/workshops` ,
+                    {
+                        method: 'POST',
+                        body: JSON.stringify( workshop ),
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    }
+                )
+                    .then(
+                        function( response ) {
+                            return response.json();
+                        }
+                    )
+                    .then(
+                        function( data ) {
+                            console.log( data );
+                        }
+                    )
+                    .catch(
+                        function( error ) {
+                            console.log( error.message );
+                        }
+                    )
             })
         </script>
     </body>
