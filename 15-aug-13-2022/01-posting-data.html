@@ -18,8 +18,8 @@
         <script>
             const form = document.getElementById( 'add-workshop-form' );
 
-            form.addEventListener( 'submit', function( event ) {
-                event.preventDefault(); // Hey browser! Keep quiet.
+            form.addEventListener( 'submit', function( evt ) {
+                evt.preventDefault(); // Hey browser! Keep quiet.
 
                 const workshop = {
                     name: document.getElementById( 'name' ).value,
