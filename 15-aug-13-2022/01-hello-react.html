@@ -10,7 +10,7 @@
         <!--
             Let's define the UI this way, and generate it using React
             <div id="message">
-                Hello <strong>React</strong>
+                Hello <strong title="React version 18">React</strong>
             </div>
         -->
         <div id="root"></div>
@@ -22,7 +22,7 @@
         <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 
         <script>
-            // define the UI
+            // define the UI (the "blueprint")
             const divEl = React.createElement(
                 'div',
                 { // props (attribute)
@@ -31,12 +31,23 @@
                 'Hello ',
                 React.createElement(
                     'strong',
-                    null, // or {} is fine
+                    null, // or {} is also fine (the strong element has no attributes)
+                    // {
+                    //     title: 'React version 18'
+                    // },
                     'React'
                 )
             );
 
+            // divEl.props has not only the actual attributes, but also the children (divEl.props.children)
             console.log( divEl ); // a JS object that captures all of the UI information
+
+            // pass on info to React DOM
+                        // 1. where to show the UI (the "root")
+                        // 2. what UI to show (blueprint)
+            const rootEl = document.getElementById( 'root' );
+            const root = ReactDOM.createRoot( rootEl );
+            root.render( divEl ); // this is the step where all the DOM manipulations take place
         </script>
     </body>
 </html>
