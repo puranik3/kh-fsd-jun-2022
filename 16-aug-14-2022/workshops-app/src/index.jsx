@@ -3,24 +3,29 @@ import ReactDOM from 'react-dom/client';
 import PackageListItem from './components/PackageListItem';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// <></> -> <React.Fragment></React.Fragment>
+const reactVersion = "18.2.0";
+
 root.render(
   <>
     <PackageListItem
       name="react"
       description="React is a JavaScript library for building user interfaces."
       author="gnoff"
-      tag="react"
-      version="18.2.0"
-      lastPublished="2 months ago"
+      tags={[ 'react' ]}
+      version={reactVersion}
+      lastPublished={2}
     >
     </PackageListItem>
+    {/* set tags to an array with multiple strings as items and see what happens */}
     <PackageListItem
       name="rxjs"
       description="Reactive Extensions for modern JavaScript"
       author="blesh"
-      tag="Rx"
+      tags={[ 'Rx', 'RxJS', 'ReactiveX', 'ReactiveExtensions', 'Streams' ]}
       version="7.5.6"
-      lastPublished="a month ago"
+      lastPublished={1}
     >
     </PackageListItem>
   </>

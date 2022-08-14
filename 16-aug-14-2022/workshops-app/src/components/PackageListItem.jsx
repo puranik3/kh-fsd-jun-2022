@@ -1,17 +1,21 @@
-const PackageListItem = ( props ) => {
-    console.log( props );
+// const PackageListItem = ( props ) => {
+const PackageListItem = ( { name, description, tags, author, version, lastPublished } ) => {
+    // const name = props.name, description = props.description;
+    // const { name, description, tag, author, version, lastPublished } = props;
+
+    const header = <h3>{name}</h3>;
 
     return (
         <div>
-            <h3>{props.name}</h3>
+            {header}
             <div>
-                {props.description}
+                {description}
             </div>
             <div>
-                <span>{props.tag}</span>
+                <span>{tags.join( ', ' )}</span>
             </div>
             <div>
-                <strong>{props.author}</strong> published {props.version} • {props.lastPublished}
+                <strong>{author}</strong> published {version} • {lastPublished} month(s) ago
             </div>
         </div>
     );
