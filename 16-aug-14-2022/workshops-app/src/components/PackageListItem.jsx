@@ -1,15 +1,17 @@
-const PackageListItem = () => {
+const PackageListItem = ( props ) => {
+    console.log( props );
+
     return (
         <div>
-            <h3>react</h3>
+            <h3>{props.name}</h3>
             <div>
-                React is a JavaScript library for building user interfaces.
+                {props.description}
             </div>
             <div>
-                <span>react</span>
+                <span>{props.tag}</span>
             </div>
             <div>
-                <strong>gnoff</strong> published 18.2.0 • 2 months ago
+                <strong>{props.author}</strong> published {props.version} • {props.lastPublished}
             </div>
         </div>
     );
