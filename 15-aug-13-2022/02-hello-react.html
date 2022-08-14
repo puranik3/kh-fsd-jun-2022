@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <!--
+            Let's define the UI this way, and generate it using React
+            <div id="message">
+                Hello <strong title="React version 18">React</strong>
+            </div>
+        -->
+        <div id="root"></div>
+
+        <!-- core of react - helps us to "define" the UI ("Architect" the page using it) - generates a "blueprint" of the pages -->
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+
+        <!-- "builds" the UI - looks at the blueprint and generates the DOM -->
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+        <script>
+            // define the UI (the "blueprint")
+            const divEl = React.createElement(
+                'div',
+                { // props (attribute)
+                    id: 'message'
+                },
+                'Hello ',
+                React.createElement(
+                    'strong',
+                    // null, // or {} is also fine (the strong element has no attributes)
+                    {
+                        title: 'React version 18'
+                    },
+                    'React'
+                )
+            );
+
+            // divEl.props has not only the actual attributes, but also the children (divEl.props.children)
+            console.log( divEl ); // a JS object that captures all of the UI information
+
+            // pass on info to React DOM
+                        // 1. where to show the UI (the "root")
+                        // 2. what UI to show (blueprint)
+            const rootEl = document.getElementById( 'root' );
+            const root = ReactDOM.createRoot( rootEl );
+            root.render( divEl ); // this is the step where all the DOM manipulations take place
+        </script>
+    </body>
+</html>

@@ -21,23 +21,15 @@
         <!-- "builds" the UI - looks at the blueprint and generates the DOM -->
         <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 
-        <script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.18.10/babel.js"></script>
+
+        <script type="text/babel">
             // define the UI (the "blueprint")
-            const divEl = React.createElement(
-                'div',
-                { // props (attribute)
-                    id: 'message'
-                },
-                'Hello ',
-                React.createElement(
-                    'strong',
-                    null, // or {} is also fine (the strong element has no attributes)
-                    // {
-                    //     title: 'React version 18'
-                    // },
-                    'React'
-                )
-            );
+            // JSX -> HTML-like syntax for JavaScript (used to define a React element)
+            const divEl = 
+                <div id="message">
+                    Hello <strong title="React version 18">React</strong>
+                </div>;
 
             // divEl.props has not only the actual attributes, but also the children (divEl.props.children)
             console.log( divEl ); // a JS object that captures all of the UI information
