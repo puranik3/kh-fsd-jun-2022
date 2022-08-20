@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import axios from 'axios';
 
 /** Component using class */
 class WorkshopsList extends Component {
@@ -7,12 +8,13 @@ class WorkshopsList extends Component {
 
         this.state = {
             loading: true,
-            workshops: []
+            workshops: [],
+            error: null
         };
     }
 
     render() {
-        const { loading, workshops } = this.state;
+        const { loading, workshops, error } = this.state;
 
         return (
             <div>
@@ -42,12 +44,17 @@ class WorkshopsList extends Component {
                     )
                 }
                 {
-                    loading === false && (
-                        this.state.workshops.map(
+                    loading === false && error === null && (
+                        workshops.map(
                             workshop => (
                                 <div>{workshop.name}</div>
                             )
                         )
+                    )
+                }
+                {
+                    loading === false && error !== null && (
+                        <div>{error.message}</div>
                     )
                 }
             </div>
@@ -58,15 +65,11 @@ class WorkshopsList extends Component {
     // useEffect() is the equivalent in function component
     // executes as soon as the component shows up
     componentDidMount() {
-        fetch( `http://workshops-server.herokuapp.com/workshops` )
-            .then(
-                function( response ) {
-                    return response.json();
-                }
-            )
+        axios.get( `http://workshops-server.herokuapp.com/workshops` )
             .then(
                 // NOTE: important to use () => {} function here (else the "this" is not set correctly)
-                ( workshops ) => {
+                ( response ) => {
+                    const workshops = response.data;
                     console.log( workshops );
                     
                     // update the state using setState() method
@@ -77,8 +80,11 @@ class WorkshopsList extends Component {
                 }
             )
             .catch(
-                function( error ) {
-                    alert( error.message );
+                ( error ) => {
+                    this.setState({
+                        loading: false,
+                        error: error
+                    });
                 }
             )
     }
