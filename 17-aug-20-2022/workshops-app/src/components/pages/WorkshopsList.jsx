@@ -12,7 +12,7 @@ class WorkshopsList extends Component {
     }
 
     render() {
-        console.log( 'render' );
+        const { loading, workshops } = this.state;
 
         return (
             <div>
@@ -20,6 +20,7 @@ class WorkshopsList extends Component {
                 <hr />
                 {/* conditional rendering using ? : operator */}
                 {
+                    /*
                     this.state.loading === true
                     ? 
                     (
@@ -27,6 +28,21 @@ class WorkshopsList extends Component {
                     )
                     :
                     (
+                        this.state.workshops.map(
+                            workshop => (
+                                <div>{workshop.name}</div>
+                            )
+                        )
+                    )
+                    */
+                }
+                {
+                    loading === true && (
+                        <div>Fetching list of workshops. Please wait...</div>
+                    )
+                }
+                {
+                    loading === false && (
                         this.state.workshops.map(
                             workshop => (
                                 <div>{workshop.name}</div>
