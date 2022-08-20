@@ -18,7 +18,7 @@ class WorkshopsList extends Component {
 
         return (
             <div>
-                <h1>List of Workshops</h1>
+                <h1 className="my-3">List of Workshops</h1>
                 <hr />
                 {/* conditional rendering using ? : operator */}
                 {/*
@@ -41,23 +41,25 @@ class WorkshopsList extends Component {
                 )}
                 {loading === false && error === null && (
                     <div className="row">
-                        {workshops.map((workshop) => (
-                            <div className="col-12 col-sm-6 col-lg-3">
-                                <div class="card">
-                                    <img
-                                        src={workshop.imageUrl}
-                                        class="card-img-top"
-                                        alt={workshop.name}
-                                    />
-                                    <div class="card-body">
-                                        <h5 class="card-title">{workshop.name}</h5>
-                                        <a href="/" class="btn btn-primary">
-                                            Know more
-                                        </a>
+                        {
+                            workshops.map((workshop) => (
+                                <div className="col-12 col-sm-6 col-lg-3 d-flex mb-3">
+                                    <div class="card p-4">
+                                        <img
+                                            src={workshop.imageUrl}
+                                            class="card-img-top"
+                                            alt={workshop.name}
+                                        />
+                                        <div class="card-body">
+                                            <h5 class="card-title">{workshop.name}</h5>
+                                            <a href="/" class="btn btn-primary">
+                                                Know more
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))
+                        }
                     </div>
                 )}
                 {loading === false && error !== null && (
