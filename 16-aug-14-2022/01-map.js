@@ -50,3 +50,10 @@ console.log( personNames );
 
 // EXERCISE: We wnt an array with the 2nd email id of every person
 // [ 'john@example.com', 'jane@example.com', ... ]
+const personSecondaryEmails = persons.map(
+    function( person ) {
+        return person.emails[1];
+    }
+);
+
+console.log( personSecondaryEmails );

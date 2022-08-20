@@ -9,15 +9,6 @@ const PackageListItem = ( { name, description, tags, author, version, lastPublis
     const header = <h3>{name}</h3>;
     console.log( header );
 
-    /* Approach 3 */
-    // [ <span>{tags[0]}</span>, <span>{tags[1]}</span>, <span>{tags[2]}</span>, ... ]
-    const tagEls = tags.map(
-        // function( tag ) {
-        //     return <span>{tag}</span>;
-        // }
-        tag => <span className="tag">{tag}</span>
-    );
-
     return (
         <div>
             {header}
@@ -32,7 +23,14 @@ const PackageListItem = ( { name, description, tags, author, version, lastPublis
                 {/* <span>{tags.join( ', ' )}</span> */}
                 
                 {/* Approach 3 */}
-                {tagEls}
+                {/*
+                    [ <span>{tags[0]}</span>, <span>{tags[1]}</span>, <span>{tags[2]}</span>, ... ]
+                */}
+                {
+                    tags.map(
+                        tag => <span className="tag">{tag}</span>
+                    )
+                }
             </div>
             <div>
                 <strong>{author}</strong> published {version} • {lastPublished} month(s) ago
