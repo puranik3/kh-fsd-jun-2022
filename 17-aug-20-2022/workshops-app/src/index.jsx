@@ -26,18 +26,33 @@ const packages = [
     }
 ];
 
+// root.render(
+//   <>
+//     {
+//       packages.map(
+//         pkg => (
+//           <PackageListItem
+//             name={pkg.name}
+//             description={pkg.description}
+//             author={pkg.author}
+//             tags={pkg.tags}
+//             version={pkg.version}
+//             lastPublished={pkg.lastPublished}
+//           >
+//           </PackageListItem>
+//       ))
+//     }
+//   </>
+// );
+
+// shorter syntax that sets the properties of the object as props
 root.render(
   <>
     {
       packages.map(
         pkg => (
           <PackageListItem
-            name={pkg.name}
-            description={pkg.description}
-            author={pkg.author}
-            tags={pkg.tags}
-            version={pkg.version}
-            lastPublished={pkg.lastPublished}
+            {...pkg}
           >
           </PackageListItem>
       ))
