@@ -12,11 +12,28 @@ class WorkshopsList extends Component {
     }
 
     render() {
+        console.log( 'render' );
+
         return (
             <div>
                 <h1>List of Workshops</h1>
                 <hr />
-                <div>Fetching list of workshops. Please wait...</div>
+                {/* conditional rendering using ? : operator */}
+                {
+                    this.state.loading === true
+                    ? 
+                    (
+                        <div>Fetching list of workshops. Please wait...</div>
+                    )
+                    :
+                    (
+                        this.state.workshops.map(
+                            workshop => (
+                                <div>{workshop.name}</div>
+                            )
+                        )
+                    )
+                }
             </div>
         );
     }
@@ -32,6 +49,7 @@ class WorkshopsList extends Component {
                 }
             )
             .then(
+                // NOTE: important to use () => {} function here (else the "this" is not set correctly)
                 ( workshops ) => {
                     console.log( workshops );
                     
