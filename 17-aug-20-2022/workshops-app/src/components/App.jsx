@@ -2,7 +2,7 @@ import WorkshopsList from "./pages/WorkshopsList";
 
 const App = () => {
     return (
-        <WorkshopsList />
+        <WorkshopsList x={1} message="hello" />
     );
 };
 

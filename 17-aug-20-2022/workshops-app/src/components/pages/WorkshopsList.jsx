@@ -2,6 +2,15 @@ import { Component } from 'react';
 
 /** Component using class */
 class WorkshopsList extends Component {
+    constructor( props ) {
+        super( props );
+
+        this.state = {
+            loading: true,
+            workshops: []
+        };
+    }
+
     render() {
         return (
             <div>
@@ -12,7 +21,7 @@ class WorkshopsList extends Component {
         );
     }
 
-    // side-effect
+    // "side-effect"
     // useEffect() is the equivalent in function component
     // executes as soon as the component shows up
     componentDidMount() {
@@ -23,8 +32,14 @@ class WorkshopsList extends Component {
                 }
             )
             .then(
-                function( workshops ) {
+                ( workshops ) => {
                     console.log( workshops );
+                    
+                    // update the state using setState() method
+                    this.setState({
+                        loading: false,
+                        workshops: workshops
+                    });
                 }
             )
             .catch(
