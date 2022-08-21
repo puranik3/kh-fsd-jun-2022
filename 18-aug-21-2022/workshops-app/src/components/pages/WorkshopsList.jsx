@@ -18,6 +18,14 @@ const WorkshopsList = ( { sm, lg } ) => {
     // if the dependency array is an empty array, the side-effect executes only after the first render (similar to using componentDidMount in a class component)
     useEffect(
         () => {
+            console.log( 'i run only after the first render' );
+        },
+        []
+    );
+
+    // runs after the first render, AND page change (dependency array variables change)
+    useEffect(
+        () => {
             console.log( 'after first render' );
 
             axios
@@ -36,7 +44,7 @@ const WorkshopsList = ( { sm, lg } ) => {
                     setError( error );
                 });
         },
-        [] // dependency array
+        [ page ] // dependency array
     );
 
     // no array - executes after every render (componentDidMount + componentDidUpdate rolled into one)
@@ -48,12 +56,18 @@ const WorkshopsList = ( { sm, lg } ) => {
 
     console.log( 'render' );
 
+    const onNextPage = ( event ) => {
+        console.log( event );
+        console.log( 'button was clicked' );
+        setPage( page + 1 );
+    };
+
     return (
         <div>
             <h1 className="my-3">List of Workshops</h1>
             <hr />
             <div className="my-3">
-                <button className="btn btn-dark btn-sm me-2">Next page</button>
+                <button className="btn btn-dark btn-sm me-2" onClick={onNextPage}>Next page</button>
                 <small>You are viewing page {page}</small>
             </div>
             {

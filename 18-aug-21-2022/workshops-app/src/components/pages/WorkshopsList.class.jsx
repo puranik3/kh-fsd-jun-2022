@@ -13,6 +13,10 @@ class WorkshopsList extends Component {
         };
     }
 
+    onNextPage = () => {
+        console.log( 'button was clicked' );
+    };
+
     render() {
         const { loading, workshops, error } = this.state;
         
