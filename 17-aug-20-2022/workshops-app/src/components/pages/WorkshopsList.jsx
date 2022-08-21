@@ -44,7 +44,7 @@ class WorkshopsList extends Component {
                         {
                             workshops.map((workshop) => (
                                 <div className="col-12 col-sm-6 col-lg-3 d-flex mb-3">
-                                    <div class="card p-4">
+                                    <div class="card p-4 w-100">
                                         <img
                                             src={workshop.imageUrl}
                                             class="card-img-top"
