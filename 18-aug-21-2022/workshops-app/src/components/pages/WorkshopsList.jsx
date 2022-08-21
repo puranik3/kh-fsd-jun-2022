@@ -23,10 +23,10 @@ const WorkshopsList = ( { sm, lg } ) => {
         []
     );
 
-    // runs after the first render, AND page change (dependency array variables change)
+    // runs only after the first render, AND page change (any of the dependency array variables change)
     useEffect(
         () => {
-            console.log( 'after first render' );
+            console.log( 'after first render AND page change' );
 
             axios
                 .get(`http://workshops-server.herokuapp.com/workshops?_page=${page}`)
