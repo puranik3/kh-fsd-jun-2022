@@ -13,6 +13,7 @@ const WorkshopsList = ( { sm, lg } ) => {
     const [ loading, setLoading ] = useState( true );
     const [ workshops, setWorkshops ] = useState( [] );
     const [ error, setError ] = useState( null );
+    const [ page, setPage ] = useState( 1 );
 
     // if the dependency array is an empty array, the side-effect executes only after the first render (similar to using componentDidMount in a class component)
     useEffect(
@@ -20,7 +21,7 @@ const WorkshopsList = ( { sm, lg } ) => {
             console.log( 'after first render' );
 
             axios
-                .get(`http://workshops-server.herokuapp.com/workshops`)
+                .get(`http://workshops-server.herokuapp.com/workshops?_page=${page}`)
                 .then(
                     (response) => {
                         const workshops = response.data;
@@ -38,12 +39,23 @@ const WorkshopsList = ( { sm, lg } ) => {
         [] // dependency array
     );
 
+    // no array - executes after every render (componentDidMount + componentDidUpdate rolled into one)
+    useEffect(
+        () => {
+            console.log( 'i execute after every render' );
+        }
+    );
+
     console.log( 'render' );
 
     return (
         <div>
             <h1 className="my-3">List of Workshops</h1>
             <hr />
+            <div className="my-3">
+                <button className="btn btn-dark btn-sm me-2">Next page</button>
+                <small>You are viewing page {page}</small>
+            </div>
             {
                 loading === true && (
                     <div>Fetching list of workshops. Please wait...</div>
