@@ -5,3 +5,9 @@
 
 ## References
 - Password validation rules are bad - https://stackoverflow.com/questions/48345922/reference-password-validation/48346033#48346033
+
+## Exercises
+- Aug 21
+    - Q. 6, 7, 9, 10, 12, 13, 14
+    - Explore useRef()
+        - Reference for useRef: https://reactjs.org/docs/refs-and-the-dom.html
