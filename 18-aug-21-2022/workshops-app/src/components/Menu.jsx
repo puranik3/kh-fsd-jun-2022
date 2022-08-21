@@ -1,25 +1,29 @@
+import { Link, NavLink } from 'react-router-dom';
+
 const Menu = () => {
     return (
-        <nav class="navbar navbar-expand-lg bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/">
+        <nav className="navbar navbar-expand-lg bg-light">
+            <div className="container-fluid">
+                <Link className="navbar-brand" to="/">
                     Workshops App
-                </a>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a
-                                class="nav-link active"
+                </Link>
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav">
+                        <li className="nav-item">
+                            <NavLink
+                                className="nav-link"
                                 aria-current="page"
-                                href="/"
+                                to="/"
+                                activeClassName="active"
+                                exact
                             >
                                 Home
-                            </a>
+                            </NavLink>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/workshops">
+                        <li className="nav-item">
+                            <NavLink className="nav-link" activeClassName="active" to="/workshops">
                                 List of workshops
-                            </a>
+                            </NavLink>
                         </li>
                     </ul>
                 </div>
