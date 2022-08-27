@@ -6,7 +6,7 @@ const AddWorkshop = () => {
             <form>
                 <div className="mb-3">
                     <label for="name" className="form-label">Name</label>
-                    <input type="text" className="form-control" id="name" rows="3" />
+                    <input type="text" className="form-control" id="name" />
                 </div>
                 <div className="mb-3">
                     <label for="imageUrl" className="form-label">Image URL</label>
