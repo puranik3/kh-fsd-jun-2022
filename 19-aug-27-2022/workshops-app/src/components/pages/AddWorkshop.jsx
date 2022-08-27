@@ -6,6 +6,7 @@ const AddWorkshop = () => {
     const imageUrlRef = useRef();
 
     const [ nameError, setNameError ] = useState( '' );
+    const [ imageUrlError, setImageUrlError ] = useState( '' );
 
     const validateName = () => {
         const name = nameRef.current.value;
@@ -17,6 +18,30 @@ const AddWorkshop = () => {
         }
     };
 
+    const validateImageUrl = () => {
+        const imageUrl = imageUrlRef.current.value;
+
+        const urlPattern = /^(http|https):\/\/.*$/;
+
+        if( imageUrl === '' ) {
+            setImageUrlError( 'Image URL is required' );
+        } else if( !urlPattern.test( imageUrl ) ) {
+            setImageUrlError( 'Does not seem like a valid URL' );
+        } else {
+            setImageUrlError( '' );
+        }
+    };
+
+    const isValid = () => {
+        if( imageUrlError !== '' || nameError !== '' ) {
+            return false;
+        }
+
+        return true;
+    };
+
+    // EXERCISE: Add a function that checks if the imageUrl is empty
+
     const addWorkshop = ( event ) => {
         event.preventDefault(); // Hey browser! Do not do anything
 
@@ -27,21 +52,23 @@ const AddWorkshop = () => {
 
         console.log( workshop );
 
-        axios.post( `https://workshops-server.herokuapp.com/workshops`, workshop, {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(
-                function( response ) {
-                    alert( 'Workshop added' );
+        if( isValid() ) {
+            axios.post( `https://workshops-server.herokuapp.com/workshops`, workshop, {
+                headers: {
+                    'Content-Type': 'application/json'
                 }
-            )
-            .catch(
-                function( error ) {
-                    alert( error.message );
-                }
-            );
+            })
+                .then(
+                    function( response ) {
+                        alert( 'Workshop added' );
+                    }
+                )
+                .catch(
+                    function( error ) {
+                        alert( error.message );
+                    }
+                );
+        }
     };
 
     return (
@@ -70,7 +97,11 @@ const AddWorkshop = () => {
                         id="imageUrl"
                         placeholder="https://www.example.com/logo"
                         ref={imageUrlRef}
+                        onChange={validateImageUrl}
                     />
+                    <div>
+                        <small className="text-danger">{imageUrlError}</small>
+                    </div>
                 </div>
                 <div className="mb-3">
                     <button type="submit" className="btn btn-primary">Add a workshop</button>
