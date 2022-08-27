@@ -1,16 +1,60 @@
+import axios from 'axios';
+import { useRef } from 'react';
+
 const AddWorkshop = () => {
+    const nameRef = useRef();
+    const imageUrlRef = useRef();
+
+    const addWorkshop = ( event ) => {
+        event.preventDefault(); // Hey browser! Do not do anything
+
+        const workshop = {
+            name: nameRef.current.value,
+            imageUrl: imageUrlRef.current.value
+        }
+
+        console.log( workshop );
+
+        axios.post( `https://workshops-server.herokuapp.com/workshops`, workshop, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(
+                function( response ) {
+                    alert( 'Workshop added' );
+                }
+            )
+            .catch(
+                function( error ) {
+                    alert( error.message );
+                }
+            );
+    };
+
     return (
         <div className="my-3">
             <h1>Add a workshop</h1>
             <hr />
-            <form>
+            <form onSubmit={addWorkshop}>
                 <div className="mb-3">
-                    <label for="name" className="form-label">Name</label>
-                    <input type="text" className="form-control" id="name" />
+                    <label htmlFor="name" className="form-label">Name</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="name"
+                        ref={nameRef}
+                    />
                 </div>
                 <div className="mb-3">
-                    <label for="imageUrl" className="form-label">Image URL</label>
-                    <input type="url" className="form-control" id="imageUrl" placeholder="https://www.example.com/logo" />
+                    <label htmlFor="imageUrl" className="form-label">Image URL</label>
+                    <input
+                        type="url"
+                        className="form-control"
+                        id="imageUrl"
+                        placeholder="https://www.example.com/logo"
+                        ref={imageUrlRef}
+                    />
                 </div>
                 <div className="mb-3">
                     <button type="submit" className="btn btn-primary">Add a workshop</button>
