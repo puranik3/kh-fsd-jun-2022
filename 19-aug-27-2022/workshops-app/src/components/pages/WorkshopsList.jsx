@@ -66,12 +66,14 @@ const WorkshopsList = ( { sm, lg } ) => {
     const deleteWorkshop = ( event, workshop ) => {
         console.log( workshop );
 
+        // EXERCISE: You can use confirm() to show a confirmation dialog. Based on what it returns (true on OK/false on Cancel) decide if you want to go ahead with the Ajax request
+
         axios.delete( `http://workshops-server.herokuapp.com/workshops/${workshop.id}` )
             .then(
                 ( response ) => {
                     alert( 'Deleted the workshop' );
 
-                    // form a new array which does not have ONLY the workhop that was deleted
+                    // form a new array which does not have ONLY the workshop that was deleted
                     const newWorkshops = workshops.filter(
                         w => {
                             return w.id !== workshop.id // true for every workshop w, except the one deleted

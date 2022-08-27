@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.18.10/babel.js"></script>
+
+        <script type="text/babel">
+            /* "children" is a prop that gathers everything within the open and close tags into an array */
+            const Panel = ( { heading, children } ) => {
+                return (
+                    <div className="panel">
+                        <div className="panel-heading">{heading}</div>
+                        <div className="panel-body">{children}</div>
+                    </div>
+                );
+            };
+
+            const rootEl = document.getElementById( 'root' );
+            const root = ReactDOM.createRoot( rootEl );
+            root.render( 
+                <Panel
+                    heading="What is React"
+                >
+                    <p>It is a UI library from Facebook</p>
+                    <p>It is concerned with the UI only. Other libraries may be required when working with React</p>
+                </Panel>
+             );
+        </script>
+    </body>
+</html>
