@@ -1,9 +1,21 @@
 import axios from 'axios';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 const AddWorkshop = () => {
     const nameRef = useRef();
     const imageUrlRef = useRef();
+
+    const [ nameError, setNameError ] = useState( '' );
+
+    const validateName = () => {
+        const name = nameRef.current.value;
+
+        if( name === '' ) {
+            setNameError( 'Name is required' );
+        } else {
+            setNameError( '' );
+        }
+    };
 
     const addWorkshop = ( event ) => {
         event.preventDefault(); // Hey browser! Do not do anything
@@ -44,7 +56,11 @@ const AddWorkshop = () => {
                         className="form-control"
                         id="name"
                         ref={nameRef}
+                        onChange={validateName}
                     />
+                    <div>
+                        <small className="text-danger">{nameError}</small>
+                    </div>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="imageUrl" className="form-label">Image URL</label>
