@@ -1,6 +1,7 @@
 // "hooks" - functions that can be used ONLY in function components (each hooks adds some functionality to function components that were earlier available ONLY in class components)
 import { useState, useEffect } from 'react';
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 const WorkshopsList = ( { sm, lg } ) => {
     // an array with 2 items
@@ -88,9 +89,9 @@ const WorkshopsList = ( { sm, lg } ) => {
                                     />
                                     <div className="card-body">
                                         <h5 className="card-title">{workshop.name}</h5>
-                                        <a href="/" className="btn btn-primary">
+                                        <Link to={"/workshops/" + workshop.id} className="btn btn-primary">
                                             Know more
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

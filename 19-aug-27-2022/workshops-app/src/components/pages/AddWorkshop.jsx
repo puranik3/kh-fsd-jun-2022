@@ -40,8 +40,6 @@ const AddWorkshop = () => {
         return true;
     };
 
-    // EXERCISE: Add a function that checks if the imageUrl is empty
-
     const addWorkshop = ( event ) => {
         event.preventDefault(); // Hey browser! Do not do anything
 
