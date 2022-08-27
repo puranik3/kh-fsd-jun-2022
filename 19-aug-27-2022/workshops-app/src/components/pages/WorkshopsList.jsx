@@ -63,6 +63,30 @@ const WorkshopsList = ( { sm, lg } ) => {
         setPage( page + 1 );
     };
 
+    const deleteWorkshop = ( event, workshop ) => {
+        console.log( workshop );
+
+        axios.delete( `http://workshops-server.herokuapp.com/workshops/${workshop.id}` )
+            .then(
+                ( response ) => {
+                    alert( 'Deleted the workshop' );
+
+                    // form a new array which does not have ONLY the workhop that was deleted
+                    const newWorkshops = workshops.filter(
+                        w => {
+                            return w.id !== workshop.id // true for every workshop w, except the one deleted
+                        }
+                    );
+                    setWorkshops( newWorkshops );
+                }
+            )
+            .catch(
+                ( error ) => {
+                    alert( 'Unable to delete. Try again later.' );
+                }
+            );
+    };
+
     return (
         <div>
             <h1 className="my-3">List of Workshops</h1>
@@ -92,6 +116,12 @@ const WorkshopsList = ( { sm, lg } ) => {
                                         <Link to={"/workshops/" + workshop.id} className="btn btn-primary">
                                             Know more
                                         </Link>
+                                        <button
+                                            className="btn btn-danger ms-2"
+                                            onClick={( event ) => deleteWorkshop( event, workshop )}
+                                        >
+                                            Delete
+                                        </button>
                                     </div>
                                 </div>
                             </div>

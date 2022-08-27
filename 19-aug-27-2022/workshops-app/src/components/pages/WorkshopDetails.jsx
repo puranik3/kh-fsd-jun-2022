@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 
-// EXERCISE: Fetch the data https://workshops-server.herokuapp.com/workshops/:id where :id is the id of the workshop
+// EXERCISE: Fetch the data https://workshops-server.herokuapp.com/workshops/:id where :id is the id of the workshop, and display its details on the page
 // Example: https://workshops-server.herokuapp.com/workshops/2
 const WorkshopDetails = () => {
     const { id } = useParams(); // { id: 3 }
