@@ -11,3 +11,5 @@
     - Q. 6, 7, 9, 10, 12, 13, 14
     - Explore useRef()
         - Reference for useRef: https://reactjs.org/docs/refs-and-the-dom.html
+- Aug 27
+    - Q. 12, 13, 14 from 05 - React - Lab Guide.pdf
