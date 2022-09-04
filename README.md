@@ -27,11 +27,14 @@
         - 04-JS (ES2015+) - Lab guide
             - If you are not clear with some JS concept, watch the Prism videos on the topics, pick an exercise from the Lab guide and solve it
 - Capstone project
-    - React - work on this first
+    - React - work on this first (MOST IMPORTANT)
     - HTML and CSS - work on this second
-- Final assessments on Prism
+- Small projects (if you find extra time)
+    - You can find these in /documents/small-projects folder in GitHub repo
+- Final assessments on Prism (NOT IMPORTANT)
     - JavaScript - take it up (take it up first)
     - React - take it up (take it up second)
+- Module-level assessments (NOT IMPORTANT)
 - IMPORTANT: Please share any issues, questions, or anything else you would like to discuss on Discord. Saturday/Sunday will have a live discussion.
 
 - Action items for instructor
