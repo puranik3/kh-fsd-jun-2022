@@ -1,0 +1,8 @@
+.tag {
+    display: inline-block;
+    padding: 0.25em;
+    border-radius: 3px;
+    margin-right: 8px;
+    font-size: 0.85em;
+    background-color: lightgray;
+}

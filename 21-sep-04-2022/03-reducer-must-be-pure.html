@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hello Redux</title>
+    </head>
+    <body>
+        <div>
+            <button id="decrement" onclick="store.dispatch( { type: DECREMENT } )">-</button>
+            <span id="counter">0</span>
+            <button id="increment" onclick="store.dispatch( { type: INCREMENT } )">+</button>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.min.js"></script>
+
+        <script>
+            const INCREMENT = 'INCREMENT';
+            const DECREMENT = 'DECREMENT';
+
+            /**
+             * Reducer MUST be a "pure function" (term from "functional programming")
+             * Pure function - Is not affected by outside data, not does it affect any data outside itself.
+             * It will never modify its arguments
+             */
+            const reducer = ( state, action ) => {
+                switch( action.type ) {
+                    case INCREMENT:
+                        // We should not do this in the reducer
+                        // state.value++ // this line would affect the state passed by the store
+                        
+                        return {
+                            ...state,
+                            value: state.value + 1
+                        };
+                        // state
+                    case DECREMENT:
+                        return {
+                            value: state.value - 1
+                        };
+                    default:
+                        return state;
+                }
+            };
+
+            const store = Redux.createStore(
+                reducer,
+                { value: 0 },
+                window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+            );
+
+            const render = () => {
+                document.getElementById( 'counter' ).innerText = store.getState().value;
+            }
+
+            store.subscribe( render );
+        </script>
+    </body>
+</html>
