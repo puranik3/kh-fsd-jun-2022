@@ -1,10 +1,12 @@
-import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import ThemeContext from '../contexts/ThemeContext';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleTheme } from '../actions/creators';
 
 const Menu = () => {
-    const { theme, toggleTheme } = useContext( ThemeContext ); // gives the ThemeContext value
-    
+    // a function is passed to useSelector - given the state, the function selects what is needed in the state, and returns it.
+    const theme = useSelector( state => state.theme );
+    const dispatch = useDispatch();
+
     const navClass = ( theme === 'dark' ? 'navbar-dark bg-dark' : 'navbar-light bg-light' );
 
     return (
@@ -37,7 +39,7 @@ const Menu = () => {
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <button className="btn btn-primary btn-sm" onClick={toggleTheme}>Toggle theme</button>
+                            <button className="btn btn-primary btn-sm" onClick={() => dispatch( toggleTheme() )}>Toggle theme</button>
                         </li>
                     </ul>
                 </div>

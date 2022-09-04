@@ -46,9 +46,10 @@ class WorkshopsList extends Component {
                 {loading === true && (
                     <div>Fetching list of workshops. Please wait...</div>
                 )}
-                {loading === false && error === null && (
+                {loading === false && error === null &&
                     <div className="row">
                         {
+                            /* [ <div>...</div>, <div>...</div>, ... ] */
                             workshops.map((workshop) => (
                                 <div className={`col-12 col-sm-${sm} col-lg-${lg} d-flex mb-3`}>
                                     <div className="card p-4 w-100">
@@ -68,10 +69,10 @@ class WorkshopsList extends Component {
                             ))
                         }
                     </div>
-                )}
-                {loading === false && error !== null && (
+                }
+                {loading === false && error !== null &&
                     <div>{error.message}</div>
-                )}
+                }
             </div>
         );
     }
