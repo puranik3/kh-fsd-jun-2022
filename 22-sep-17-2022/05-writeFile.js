@@ -1,7 +1,8 @@
 const fs = require( 'fs' );
 
-const todoList = `
-<html>
+const todoList = 
+`<!doctype html>
+<html lang="en">
     <head>
         <title>Todo list</title>
     </head>
