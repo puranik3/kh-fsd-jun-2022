@@ -17,6 +17,9 @@
         - Reference for useRef: https://reactjs.org/docs/refs-and-the-dom.html
 - Aug 27
     - Q. 12, 13, 14 from 05 - React - Lab Guide.pdf
+- September 17
+    - 06-Node JS lab guide
+        - Q. 2, 6
 
 ## Break plan
 - Important videos - watch and understand the concepts (important concepts have been mostly covered in the class. the ones not covered in the classes, are generally speaking - unimportant)
