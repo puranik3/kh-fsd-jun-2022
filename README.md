@@ -5,6 +5,10 @@
 
 ## References
 - Password validation rules are bad - https://stackoverflow.com/questions/48345922/reference-password-validation/48346033#48346033
+- https://javascript.info/
+- https://www.reactiflux.com/learning
+- https://nodeschool.io/
+- https://www.w3schools.com/react/default.asp
 
 ## Exercises
 - Aug 21
