@@ -18,6 +18,8 @@ const greetings = {
     '/ukrainian': 'Previt'
 };
 
+const privateVariable = 'Available only in this file'; // not exported
+
 module.exports = {
     // toCase: toCase,
     toCase,

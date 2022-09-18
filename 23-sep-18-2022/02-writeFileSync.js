@@ -1,0 +1,1 @@
+// EXERCISE: Please explore writeFileSync() - DO NOT use it!
