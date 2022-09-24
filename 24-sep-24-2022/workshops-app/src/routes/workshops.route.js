@@ -6,32 +6,45 @@ const workshops = [
     {
         id: 1,
         name: 'React',
+        category: 'frontend',
         date: '30-09-2022'
     },
     {
         id: 2,
         name: 'Express',
+        category: 'backend',
         date: '05-10-2022'
     },
     {
         id: 3,
         name: 'JavaScript',
-        date: '15-10-2022'
+        date: '15-10-2022',
+        category: 'language',
     },
     {
         id: 4,
         name: 'CSS',
+        category: 'frontend',
         date: '25-10-2022'
     }
 ];
 
 let nextId = 3;
 
-router.get( '/workshops', ( req, res ) => {
-    res.json( workshops );
+// Query params -> ?category=frontend
+router.get( '/', ( req, res ) => {
+    console.log( req.query ); // { category: 'frontend' }
+    const { category } = req.query;
+
+    if( category ) {
+        const matchedWorkshops = workshops.filter( workshop => workshop.category === category );
+        res.json( matchedWorkshops );
+    } else {
+        res.json( workshops );
+    }
 });
 
-router.get( '/workshops/:id', ( req, res ) => {
+router.get( '/:id', ( req, res ) => {
     const { id } = req.params;
 
     const matchedWorkshop = workshops.find( item => item.id == id );
@@ -39,7 +52,19 @@ router.get( '/workshops/:id', ( req, res ) => {
     res.json( matchedWorkshop );
 });
 
-router.put( '/workshops/:id', ( req, res ) => {
+router.post( '/', ( req, res ) => {
+    const newWorkshop = {
+        id: nextId,
+        ...req.body
+    };
+
+    workshops.push( newWorkshop );
+    nextId++;
+
+    res.send( newWorkshop );
+});
+
+router.put( '/:id', ( req, res ) => {
     // get hold of the object
     const { id } = req.params;
 
@@ -54,7 +79,7 @@ router.put( '/workshops/:id', ( req, res ) => {
     res.json( workshops[matchedWorkshopIdx] );
 });
 
-router.delete( '/workshops/:id', ( req, res ) => {
+router.delete( '/:id', ( req, res ) => {
     const { id } = req.params;
     const matchedWorkshopIdx = workshops.findIndex( item => item.id == id );
 
@@ -64,18 +89,5 @@ router.delete( '/workshops/:id', ( req, res ) => {
     // For an empty response the status code is 204 (200 is the default)
     res.status( 204 ).json();
 });
-
-router.post( '/workshops', ( req, res ) => {
-    const newWorkshop = {
-        id: nextId,
-        ...req.body
-    };
-
-    workshops.push( newWorkshop );
-    nextId++;
-
-    res.send( newWorkshop );
-});
-
 
 module.exports = router;
