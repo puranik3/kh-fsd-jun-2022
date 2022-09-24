@@ -54,6 +54,17 @@ router.put( '/workshops/:id', ( req, res ) => {
     res.json( workshops[matchedWorkshopIdx] );
 });
 
+router.delete( '/workshops/:id', ( req, res ) => {
+    const { id } = req.params;
+    const matchedWorkshopIdx = workshops.findIndex( item => item.id == id );
+
+    workshops.splice( matchedWorkshopIdx, 1 );
+
+    // for DELETE operation we generally send an empty response
+    // For an empty response the status code is 204 (200 is the default)
+    res.status( 204 ).json();
+});
+
 router.post( '/workshops', ( req, res ) => {
     const newWorkshop = {
         id: nextId,
