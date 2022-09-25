@@ -17,6 +17,11 @@ router.get( '/workshops/:id', ( req, res ) => {
 
     const workshop = workshops.find( workshop => workshop.id === idInt );
 
+    if( !workshop ) {
+        res.render( '404' );
+        return;
+    }
+    
     res.render( 'workshop', workshop );
 });
 

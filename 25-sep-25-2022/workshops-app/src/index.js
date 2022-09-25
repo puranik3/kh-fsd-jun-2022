@@ -50,6 +50,14 @@ app.use( '/api/workshops', workshopsRouter );
 app.use( '/api', apiErrorHandler );
 app.use( pageNotFound );
 
+// this is considered as the "error-handling middleware"
+app.use(( err, req, res, next ) => {
+    res.status( err.status ).json({
+        status: 'error',
+        message: err.message
+    });
+});
+
 const PORT = process.env.PORT || 3000;
 
 // creates a server and starts it

@@ -24,15 +24,30 @@ router.get( '/', ( req, res ) => {
     }
 });
 
-router.get( '/:id', ( req, res ) => {
+router.get( '/:id', ( req, res, next ) => {
     const { id } = req.params;
 
     const matchedWorkshop = workshops.find( item => item.id == id );
 
+    if( !matchedWorkshop ) {
+        const error = new Error( 'Workshop with given id does not exist' );
+        error.status = 404;
+        next( error );
+        return;
+    }
+
     res.json( matchedWorkshop );
 });
 
-router.post( '/', ( req, res ) => {
+router.post( '/', ( req, res, next ) => {
+    // no data has been sent in the request body
+    if( Object.keys( req.body ).length === 0 ) {
+        const error = new Error( 'Request body appears to be empty' );
+        error.status = 400;
+        next( error ); // since we pass an error object to next() the control goes to the error-handling middleware
+        return;
+    }
+
     const newWorkshop = {
         id: nextId,
         ...req.body
