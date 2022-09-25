@@ -50,7 +50,7 @@ app.use( '/api/workshops', workshopsRouter );
 app.use( '/api', apiErrorHandler );
 app.use( pageNotFound );
 
-// this is considered as the "error-handling middleware"
+// this is considered as the "error-handling middleware" since it has 4 arguments
 app.use(( err, req, res, next ) => {
     res.status( err.status ).json({
         status: 'error',

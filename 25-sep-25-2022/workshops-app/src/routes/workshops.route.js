@@ -32,6 +32,8 @@ router.get( '/:id', ( req, res, next ) => {
     if( !matchedWorkshop ) {
         const error = new Error( 'Workshop with given id does not exist' );
         error.status = 404;
+        
+        // since we pass an error object to next() the control goes to the error-handling middleware
         next( error );
         return;
     }
@@ -44,7 +46,7 @@ router.post( '/', ( req, res, next ) => {
     if( Object.keys( req.body ).length === 0 ) {
         const error = new Error( 'Request body appears to be empty' );
         error.status = 400;
-        next( error ); // since we pass an error object to next() the control goes to the error-handling middleware
+        next( error );
         return;
     }
 
