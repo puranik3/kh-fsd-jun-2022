@@ -18,8 +18,10 @@
 - Aug 27
     - Q. 12, 13, 14 from 05 - React - Lab Guide.pdf
 - September 17
-    - 06-Node JS lab guide
+    - 06-Node JS lab guide (old guide - this has been replaced with a new Guide)
         - Q. 2, 6
+    - 06-Node JS lab guide (new guide)
+        - Q. 21, 22
 
 ## Break plan
 - Important videos - watch and understand the concepts (important concepts have been mostly covered in the class. the ones not covered in the classes, are generally speaking - unimportant)
