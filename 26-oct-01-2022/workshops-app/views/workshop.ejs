@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= name %></title>
+        <!-- The path is relative to the public folder (which is considered as the root folder) -->
+        <link rel="stylesheet" href="/css/app.css">
+        <link rel="stylesheet" href="/css/workshop.css">
+    </head>
+    <body>
+        <%- include( "./nav", {} ) -%>
+        <h1><%= name %></h1>
+        <hr />
+        <section>
+            <img src="<%= imageUrl %>" alt="<%= name %>" class="img-fluid" />
+            <%- description %>
+        </section>
+
+        <h2>Modes of delivery</h2>
+        <div>
+            <% if ( modes.online ) { %>
+                ✅
+            <% } else { %>
+                ❌
+            <% } %>
+            Online
+        </div>
+        <div>
+            <% if ( modes.inPerson ) { %>
+                ✅
+            <% } else { %>
+                ❌
+            <% } %>
+            In-person
+        </div>
+
+    </body>
+</html>

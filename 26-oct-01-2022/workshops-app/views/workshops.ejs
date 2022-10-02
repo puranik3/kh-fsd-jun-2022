@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>List of workshops</title>
+        <link rel="stylesheet" href="/css/app.css">
+    </head>
+    <body>
+        <%- include( "./nav", {} ) -%>
+        <h1>List of workshops</h1>
+        <hr />
+        Number of workshops is <%= workshops.length %>
+        <ul>
+            <% for( let i = 0; i < workshops.length; i++ ) { %>
+                <li>
+                    <a href="/workshops/<%= workshops[i].id %>">
+                        <%= workshops[i].name %>
+                    </a>
+                </li>
+            <% } %>
+        </ul>
+    </body>
+</html>
