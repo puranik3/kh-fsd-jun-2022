@@ -44,7 +44,39 @@ cursor2.next(); // gets the next result
 cursor2.next(); // gets the next result
 
 // ii) Retrieve all shows and sort by rating first, and runtime when ratings are the same
-
+db.shows
+    .find(
+        {},
+        {
+            name: true,
+            runtime: true,
+            "rating.average": true
+        }
+    )
+    .sort(
+        {
+            "rating.average": -1,
+            runtime: 1
+        }
+    );
 
 // iii) Retrieve all shows and sort by rating first, and runtime when ratings are the same.
 // This time skip 20 documents and retrieve only 10 documents.
+// We shall retrieve documents 21 - 30
+db.shows
+    .find(
+        {},
+        {
+            name: true,
+            runtime: true,
+            "rating.average": true
+        }
+    )
+    .sort(
+        {
+            "rating.average": -1,
+            runtime: 1
+        }
+    )
+    .skip( 20 )
+    .limit( 10 )
