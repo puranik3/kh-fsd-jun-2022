@@ -101,6 +101,17 @@ db.shows.aggregate(
                     $gte: 5
                 }
             }
+        },
+        {
+            $sort: {
+                "_id.networkName": 1
+            }
+        },
+        {
+            $out: {
+                db: 'showsDB',
+                coll: 'network-country-shows-report'
+            }
         }
     ]
 )
