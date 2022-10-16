@@ -1,0 +1,9 @@
+# Ignore artifacts
+build
+coverage
+
+# Ignore test files
+*.test.js
+*.test.ts
+*.test.jsx
+*.test.tsx

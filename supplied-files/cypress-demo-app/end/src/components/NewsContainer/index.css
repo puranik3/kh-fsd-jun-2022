@@ -1,0 +1,9 @@
+.news {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.noHeadlinesFound,
+.spinner-border {
+  margin: 10px;
+}
