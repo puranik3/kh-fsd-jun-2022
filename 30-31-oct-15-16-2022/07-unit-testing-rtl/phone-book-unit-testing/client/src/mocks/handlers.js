@@ -7,6 +7,17 @@ const handlers = [
             ctx.status( 200 ),
             ctx.json( contacts )
         )
+    }),
+    rest.post( 'http://localhost:4000/contacts', async ( req, res, ctx ) => {
+        const data = await req.json();
+
+        return res(
+            ctx.status( 201 ),
+            ctx.json({
+                id: 3,
+                ...data
+            })
+        )
     })
 ];
 

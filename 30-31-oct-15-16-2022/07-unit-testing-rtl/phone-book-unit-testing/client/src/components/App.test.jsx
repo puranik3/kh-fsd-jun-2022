@@ -1,5 +1,8 @@
 import App from './App';
-import { render, screen, waitFor } from '@testing-library/react';
+
+import { getDefaultNormalizer, render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
 import { errorHandlers } from '../mocks/handlers';
 import server from '../mocks/server';
 
@@ -38,4 +41,33 @@ describe( 'App component on load', () => {
         const loadingMessage = screen.queryByTestId( 'fetching-contacts' );
         expect( loadingMessage ).not.toBeInTheDocument();
     });
+});
+
+test( 'App should add a new contact', async () => {
+    render( <App /> );
+
+    // We prefer using label text / role based query methods
+    const nameInput = await screen.findByLabelText( /Name/i );
+    const phoneInput = await screen.findByLabelText( /Phone number/i );
+
+    const button = await screen.findByRole( 'button', { name: 'Add' } );
+
+    const newContact = {
+        name: 'Mark Smith',
+        phoneNumber: '+001-3456789012'
+    };
+
+    userEvent.clear( nameInput );
+    userEvent.clear( phoneInput );
+
+    userEvent.type( nameInput, newContact.name );
+    userEvent.type( phoneInput, newContact.phoneNumber );
+
+    userEvent.click( button );
+
+    const contactNameEl = await screen.findByText( newContact.name );
+    const phoneEl = await screen.findByText( newContact.phoneNumber );
+
+    expect( contactNameEl ).toBeInTheDocument();
+    expect( phoneEl ).toBeInTheDocument();
 });
