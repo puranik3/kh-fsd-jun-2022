@@ -1,0 +1,2 @@
+## Problem of Sorting
+We have an array. [ 1200, 1000, 500, 350, 2300, 1350, 250 ]. For simplicity we assume, an array of numbers. We have to "sort" the items in the array. That is, we have to move the number around in the array, so the numbers are in sorted order (ascending/descending).

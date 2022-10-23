@@ -12,6 +12,7 @@
 - https://www.reactiflux.com/learning
 - https://nodeschool.io/
 - https://www.w3schools.com/react/default.asp
+- Memoization in Fibonacci - https://www.section.io/engineering-education/fibonacci-memoization-time-complexity-in-javascript/#:~:text=Below%20is%20our%20complete%20memoized,)%3B%20return%20memo%5Bn%5D%3B
 
 ## Exercises
 - Aug 21
