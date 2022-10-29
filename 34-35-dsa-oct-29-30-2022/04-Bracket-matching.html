@@ -11,13 +11,19 @@
                 resize: none;
                 font-size: 1.5em;
             }
+
+            .highlight {
+                background-color: yellow;
+            }
         </style>
     </head>
     <body>
         <textarea id="editor" class="editor" rows="20"></textarea>
-        You selected <span id="sel"></span>
+        You selected <span id="sel" class="highlight"></span>
 
-        <script>
+        <script type="module">
+            import Stack from './03-Stack.js';
+
             const editor = document.getElementById("editor");
 
             function getSelectionText() {
@@ -49,8 +55,43 @@
             }
 
             document.onmouseup = document.onkeyup = document.onselectionchange = function () {
+                const matches = {
+                    '}': '{',
+                    ']': '[',
+                    ')': '('
+                };
+
                 const { text, start, end } = getSelectionText();
                 document.getElementById( "sel" ).textContent = `${text} ${start} ${end}`;
+
+                const bracketsStack = new Stack();
+
+                // if the selection is a closing bracket...
+                if( [ '}', ']', ')' ].includes( text ) ) {
+
+                    const content = editor.value;
+
+                    // we go through the editor's text character-by-character...
+                    for( let i = 0; i < content.length; i++ ) {
+                        
+                        // if the selection is a opening bracket we record it in a stack...
+                        if( [ '{', '[', '(' ].includes( content[i] ) ) {
+                            bracketsStack.push( i );
+                        }
+
+                        if( [ '}', ']', ')' ].includes( content[i] ) ) {
+                            // @todo Handling error scenarios (the opening bracket on top is not a matching one for the closing one)
+                            // @todo Handling error scenarios (the stack is empty - and we cannot pop)
+                            // let's assume for now the string is well-structured
+                            const openingBracket = bracketsStack.pop();
+
+                            if( i === start ) { // we are now at the position user has highlighted
+                                console.log( `opening bracket is at ${openingBracket}` );
+                                editor.setSelectionRange(openingBracket, openingBracket + 1);
+                            }
+                        }
+                    }
+                }
             };
         </script>
     </body>
