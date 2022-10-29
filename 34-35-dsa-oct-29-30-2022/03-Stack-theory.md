@@ -1,0 +1,15 @@
+# Stack
+- Stack is a LIFO data structure
+- Examples:
+    - Matching parenthesis
+    - Undo operation
+    - Backtracking
+    - Expression evaluation
+    - Program compilation
+    - Function call stack
+- We have the concept of TOP of stack
+- Operations
+    - push() -> add and item to the TOP of the stack
+    - pop() -> remove an item from the TOP of the stack and return it
+    - peek() -> check the item on the TOP without removing it
+    - isEmpty() -> check if the stack is empty
