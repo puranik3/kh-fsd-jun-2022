@@ -81,7 +81,7 @@
 
                         if( [ '}', ']', ')' ].includes( content[i] ) ) {
                             // @todo Handling error scenarios (the opening bracket on top is not a matching one for the closing one)
-                            // @todo Handling error scenarios (the stack is empty - and we cannot pop)
+                            // @todo Handling error scenarios (the stack is empty - and we cannot pop - this will happen if the number of closing brackets so far exceeded the number of opening brackets)
                             // let's assume for now the string is well-structured
                             const openingBracket = bracketsStack.pop();
 
