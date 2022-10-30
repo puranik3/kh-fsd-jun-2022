@@ -11,7 +11,7 @@ class Stack {
     }
 
     peek() {
-        const idx = items.length - 1;
+        const idx = this.items.length - 1;
         return this.items[idx];
     }
 
