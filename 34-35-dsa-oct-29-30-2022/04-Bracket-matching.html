@@ -18,6 +18,7 @@
         </style>
     </head>
     <body>
+        Select a closing bracket to see the relevant block being selected
         <textarea id="editor" class="editor" rows="20"></textarea>
         You selected <span id="sel" class="highlight"></span>
 
@@ -80,19 +81,27 @@
                         }
 
                         if( [ '}', ']', ')' ].includes( content[i] ) ) {
-                            // Handling error scenario #1 - the opening bracket on top of the stack is not a matching one for the closing one
-                            if( content[bracketsStack.peek()] !== matches[content[i]] ) {
-                                alert( 'Your code is malformed' );
+                            try {
+                                // Handling error scenario #1 - the opening bracket on top of the stack is not a matching one for the closing one
+                                if( content[bracketsStack.peek()] !== matches[content[i]] ) {
+                                    alert( 'Your code is malformed (found a different matching bracket)' );
+                                    return;
+                                }
+                            } catch( error ) {
+                                // Handling error scenario #2 - the stack is empty - and we cannot pop - this will happen if the number of closing brackets so far exceeded the number of opening brackets
+                                alert( 'Your code is malformed (encountered an extra closing bracket)' );
                                 return;
                             }
 
-                            // @todo Handling error scenarios (the stack is empty - and we cannot pop - this will happen if the number of closing brackets so far exceeded the number of opening brackets)
-                            // let's assume for now the string is well-structured
+                            // no errors - so the code is well-formed
                             const openingBracket = bracketsStack.pop();
 
                             if( i === start ) { // we are now at the position user has highlighted
                                 console.log( `opening bracket is at ${openingBracket}` );
                                 editor.setSelectionRange(openingBracket, openingBracket + 1);
+                                
+                                // we have displayed the matching range - nothing left to do - let us break out of the loop
+                                break;
                             }
                         }
                     }

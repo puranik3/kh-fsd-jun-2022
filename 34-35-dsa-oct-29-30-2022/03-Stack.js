@@ -11,6 +11,10 @@ class Stack {
     }
 
     peek() {
+        if( this.isEmpty() ) {
+            throw new Error( 'Stack is empty' );
+        }
+
         const idx = this.items.length - 1;
         return this.items[idx];
     }

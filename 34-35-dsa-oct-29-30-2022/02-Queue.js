@@ -1,3 +1,4 @@
+import LinkedList from './05-LinkedList'
 class Queue {
     // we implement this queue using an array, but other forms of structured memory may be used
     items = [];

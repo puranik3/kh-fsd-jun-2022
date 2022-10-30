@@ -1,0 +1,14 @@
+# Trees
+- Tree is a non-linear data structure
+- A set of Nodes. Every Node can have a set of children that it is linked to. There is the concept of parent node and child node.
+- Great for representing hierarchies
+- There is a "distinguished node" - called "root" - the root has no parent node
+- Example
+    - An organization chart
+    - DOM tree in a browser that represents the HTML page elements
+    - Abstract Syntax Tree - a representation of the code of a program
+    - Some Searching and Sorting algorithms represent data in a tree data structure
+        - Binary Search Tree (BST)
+- Operations:
+    - Searching for a node with matching data
+    - Listing out nodes (data) in the tree
